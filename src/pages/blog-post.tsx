@@ -75,7 +75,7 @@ const BlogPost = () => {
           </Link>
 
           {/* Post Header */}
-          <article className="bg-portfolio-card border border-portfolio-border rounded-lg p-8 mb-8">
+          <article className="mb-12">
             <header className="mb-8">
               {/* Status Badge */}
               <div className="flex items-center justify-between mb-4">
