@@ -48,7 +48,7 @@ The transition to solo development has been challenging but rewarding. It's not 
 **The best time to plant a tree was 20 years ago. The second best time is now.**
     `,
     author: "Lucas",
-    publishedAt: "2024-01-15",
+    publishedAt: "2025-01-15",
     status: "published",
     category: "Career",
     tags: ["freelancing", "career-change", "solo-developer"],
@@ -119,7 +119,7 @@ The Elixir CRM significantly outperformed our expectations:
 Elixir and Phoenix proved to be excellent choices for building a CRM. The performance gains and reliability improvements made the learning curve worthwhile.
     `,
     author: "Lucas",
-    publishedAt: "2024-01-20",
+    publishedAt: "2025-01-20",
     status: "published",
     category: "Technical",
     tags: ["elixir", "phoenix", "otp", "crm", "performance"],
@@ -173,7 +173,7 @@ pm2 restart app
 Being a one-person tech team is challenging but rewarding. The key is to accept your limitations, automate what you can, and focus on what you do best.
     `,
     author: "Lucas",
-    publishedAt: "2024-01-25",
+    publishedAt: "2025-01-25",
     status: "published",
     category: "Solo Development",
     tags: ["solo-developer", "tech-team", "automation", "tools"],
@@ -194,7 +194,7 @@ Nobody thinks about the client anymore. We keep adding layers of complexity inst
 
 ## The Problem
 
-A single Chrome tab shouldn't consume almost 500MB of RAM. But here we are, in 2024, where opening a "simple" website requires more resources than running a full operating system a decade ago.
+A single Chrome tab shouldn't consume almost 500MB of RAM. But here we are, in 2025, where opening a "simple" website requires more resources than running a full operating system a decade ago.
 
 ### Why is this happening?
 
@@ -272,7 +272,7 @@ It's time to step back and ask: **What are we actually trying to solve?**
 Because right now, we're solving developer problems at the expense of user experience. And that's not sustainable.
     `,
     author: "Lucas",
-    publishedAt: "2024-01-30",
+    publishedAt: "2025-01-30",
     status: "published",
     category: "Technical",
     tags: ["web-development", "performance", "rails", "react", "bloat", "javascript"],
