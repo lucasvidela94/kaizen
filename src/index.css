@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark theme inspired by PlanetScale - Primary greys and teals */
+    --background: 222 14% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 222 14% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 222 14% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 174 55% 60%; /* Teal accent */
+    --primary-foreground: 222 14% 8%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 174 55% 60%; /* Teal */
+    --accent-foreground: 222 14% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 22%;
+    --input: 220 13% 18%;
+    --ring: 174 55% 60%;
+
+    /* Custom portfolio tokens */
+    --portfolio-bg: 222 14% 8%;
+    --portfolio-card: 222 14% 10%;
+    --portfolio-text-primary: 210 20% 92%;
+    --portfolio-text-secondary: 215 16% 70%;
+    --portfolio-text-muted: 215 16% 60%;
+    --portfolio-accent: 174 55% 60%;
+    --portfolio-accent-glow: 174 55% 70%;
+    --portfolio-border: 220 13% 22%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 14% 8%) 0%, hsl(220 13% 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(174 55% 60%) 0%, hsl(174 60% 70%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.15);
+    --shadow-card: 0 4px 12px hsl(222 14% 4% / 0.4);
+    
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light theme */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 14% 8%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 14% 8%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 222 14% 8%;
+
+    --primary: 174 55% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 96%;
+    --secondary-foreground: 222 14% 8%;
+
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 16% 40%;
+
+    --accent: 174 55% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 96%;
+    --ring: 174 55% 60%;
+
+    /* Custom portfolio tokens for light theme - Improved contrast */
+    --portfolio-bg: 0 0% 100%;
+    --portfolio-card: 0 0% 96%;
+    --portfolio-text-primary: 222 14% 4%;
+    --portfolio-text-secondary: 222 14% 20%;
+    --portfolio-text-muted: 222 14% 35%;
+    --portfolio-accent: 174 55% 60%;
+    --portfolio-accent-glow: 174 55% 70%;
+    --portfolio-border: 220 13% 85%;
+
+    /* Gradients for light theme - More contrast */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 94%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(174 55% 60%) 0%, hsl(174 60% 70%) 100%);
+
+    /* Shadows for light theme - More pronounced */
+    --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.2);
+    --shadow-card: 0 4px 16px hsl(222 14% 4% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme */
+    --background: 222 14% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 222 14% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 222 14% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 174 55% 60%;
+    --primary-foreground: 222 14% 8%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 174 55% 60%;
+    --accent-foreground: 222 14% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 22%;
+    --input: 220 13% 18%;
+    --ring: 174 55% 60%;
+
+    /* Custom portfolio tokens for dark theme */
+    --portfolio-bg: 222 14% 8%;
+    --portfolio-card: 222 14% 10%;
+    --portfolio-text-primary: 210 20% 92%;
+    --portfolio-text-secondary: 215 16% 70%;
+    --portfolio-text-muted: 215 16% 60%;
+    --portfolio-accent: 174 55% 60%;
+    --portfolio-accent-glow: 174 55% 70%;
+    --portfolio-border: 220 13% 22%;
+
+    /* Gradients for dark theme */
+    --gradient-hero: linear-gradient(135deg, hsl(222 14% 8%) 0%, hsl(220 13% 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(174 55% 60%) 0%, hsl(174 60% 70%) 100%);
+
+    /* Shadows for dark theme */
+    --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.15);
+    --shadow-card: 0 4px 12px hsl(222 14% 4% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    background: hsl(var(--portfolio-bg));
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground font-medium;
+  }
+  
+  /* Custom animations */
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--portfolio-accent) / 0.2); }
+    50% { box-shadow: 0 0 30px hsl(var(--portfolio-accent) / 0.4); }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Meteor rain effect */
+  @keyframes meteor-fall {
+    0% {
+      transform: translateY(-50px) translateX(-30px) rotate(-45deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(calc(100vh + 50px)) translateX(30px) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  
+  .meteor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Smooth transitions */
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+}
