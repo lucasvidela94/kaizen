@@ -74,6 +74,56 @@ const About = () => {
               <div className="flex items-start space-x-6">
                 <div className="flex-shrink-0">
                   <img 
+                    src="/magmalabs-logo.svg" 
+                    alt="Magma Labs Logo" 
+                    className="w-16 h-16 rounded-lg object-contain"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-xl font-semibold text-portfolio-primary">
+                      Magma Labs
+                    </h3>
+                    <a 
+                      href="https://magmalabs.io" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-portfolio-accent hover:text-portfolio-accent-glow transition-colors text-sm font-mono"
+                    >
+                      magmalabs.io
+                    </a>
+                  </div>
+                  <p className="text-portfolio-secondary mb-4 leading-relaxed">
+                    Full-stack development agency specializing in custom software solutions. Building scalable applications and helping businesses grow through technology.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
+                      React
+                    </span>
+                    <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
+                      Node.js
+                    </span>
+                    <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
+                      TypeScript
+                    </span>
+                    <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
+                      Ruby on Rails
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Recently Built Section */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-portfolio-primary mb-8">
+              Recently built
+            </h2>
+            <div className="bg-portfolio-card border border-portfolio-border rounded-lg p-8">
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <img 
                     src="/suci-logo.jpg" 
                     alt="Suci Logo" 
                     className="w-16 h-16 rounded-lg object-cover"
