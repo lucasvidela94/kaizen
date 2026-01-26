@@ -4,36 +4,54 @@ import SkillsSection from "@/components/skills-section";
 // import MeteorRain from "@/components/meteor-rain";
 
 const Index = () => {
-  const projects = [
+  const professionalWork = [
     {
-      title: "Built a complete real estate CRM from scratch",
-      description: "Property management, tenant behavior tracking, the whole pipeline. Currently managing real properties because it actually works.",
+      title: "Real estate CRM (production)",
+      description: "Built and maintain a CRM for property operations: tenants, leases, payments, and day-to-day workflows. Used to manage real properties.",
       tech: "Tech: Phoenix, Elixir",
       highlight: true
     },
     {
-      title: "Full-stack SaaS ecosystem - mobile to web",
-      description: "Complete platform with Next.js web portal, React Native mobile app, and Golang API. End-to-end solution that scales.",
+      title: "SaaS platform (mobile + web + API)",
+      description: "End-to-end product: web portal, React Native app, and a Go API. Focus on reliability, monitoring, and smooth delivery.",
       tech: "Tech: React Native, Expo, Next.js, Golang"
     },
     {
-      title: "Kept enterprise API running for 15k+ companies",
-      description: "Maintained Django backend while building new features. Sometimes the boring stuff is the most important stuff.",
+      title: "Enterprise API maintenance (15k+ companies)",
+      description: "Maintained and extended a Django backend in production: bug fixes, performance work, and steady delivery.",
       tech: "Tech: Django, Next.js - at Logra.io"
     },
     {
-      title: "Built alternative medicine e-commerce platform",
-      description: "Secure marketplace for traditional healing products. Every transaction handled with care and compliance.",
+      title: "Latin Mundo (US finance)",
+      description: "Backend for check and transaction operations with strict accounting rules, role-based access, and reporting.",
+      tech: "Tech: Ruby on Rails, PostgreSQL, JWT, CanCanCan"
+    },
+    {
+      title: "BeautyBarber (client platform)",
+      description: "Rails + React commerce platform with product catalog, promotions, admin panel, SSR, and background jobs.",
+      tech: "Tech: Rails, Inertia.js, React, Tailwind, Solid Queue"
+    },
+    {
+      title: "AVAL System (mobile + API)",
+      description: "Mobile app and REST API for vehicles, services, incidents, and checklists, with JWT auth and organization scoping. Side work.",
+      tech: "Tech: Expo, React Native, Ruby on Rails API, PostgreSQL"
+    }
+  ];
+
+  const personalProjects = [
+    {
+      title: "E-commerce marketplace",
+      description: "Built an e-commerce platform with payments and operational tooling, with an emphasis on security and maintainability.",
       tech: "Tech: Astro, Payment gateways"
     },
     {
-      title: "Open source ticket booking system",
-      description: "Built because existing platforms needed updates. Sometimes the best solution is to build it yourself.",
+      title: "Open-source ticket booking",
+      description: "Ticket booking system built as an open-source project with a clean architecture and a practical UX.",
       tech: "Tech: Rails"
     },
     {
-      title: "CLI time tracking for Harvest alternative",
-      description: "Command-line productivity tool for task management. Because sometimes the best interface is no interface.",
+      title: "CLI time tracking",
+      description: "Command-line time tracking tool focused on speed and clear reporting.",
       tech: "Tech: Golang"
     }
   ];
@@ -48,17 +66,11 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <div className="mb-16 text-center">
             <h1 className="text-5xl font-bold text-portfolio-primary mb-6 leading-tight">
-              I'm Lucas.
+              Lucas Videla
             </h1>
             <div className="text-xl text-portfolio-secondary max-w-3xl mx-auto leading-relaxed space-y-4">
-              <p>I develop with intention.</p>
-              <p>
-                Here: personal projects, technical reflections,<br />
-                and the process behind the code.
-              </p>
-              <p className="text-portfolio-accent font-medium">
-                No deadlines, just curiosity.
-              </p>
+              <p>Full-stack engineer focused on reliable delivery.</p>
+              <p>Currently at Magma Labs. Available for contract work and consulting.</p>
             </div>
           </div>
         </div>
@@ -68,17 +80,36 @@ const Index = () => {
       <section className="pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-portfolio-primary mb-12">
-            Here's what I've been shipping:
+            Professional work
           </h2>
           
           <div className="grid gap-8">
-            {projects.map((project, index) => (
+            {professionalWork.map((project, index) => (
               <ProjectCard
                 key={index}
                 title={project.title}
                 description={project.description}
                 tech={project.tech}
                 highlight={project.highlight}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-portfolio-primary mb-12">
+            Selected builds
+          </h2>
+
+          <div className="grid gap-8">
+            {personalProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
               />
             ))}
           </div>
@@ -93,10 +124,10 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-portfolio-card border border-portfolio-border rounded-lg p-8">
             <h2 className="text-2xl font-bold text-portfolio-primary mb-4">
-              Currently available for projects that need to ship fast.
+              Available for contract work and consulting.
             </h2>
             <p className="text-lg text-portfolio-secondary mb-6">
-              Wanna build something that works?
+              If you need someone who can take ownership and ship, reach out.
             </p>
             <div className="flex items-center justify-center space-x-4 text-portfolio-accent">
               <a href="mailto:lucasan.videla@gmail.com" className="font-mono hover:text-portfolio-accent-glow transition-colors">

@@ -48,7 +48,7 @@ const Blog = () => {
               Blog
             </h1>
             <p className="text-lg text-portfolio-secondary max-w-2xl mx-auto">
-              Insights on solo development, technical deep dives, and the reality of building products as a one-person team.
+              Notes on engineering, product decisions, and what I learn while building and maintaining software.
             </p>
           </div>
 
@@ -124,28 +124,27 @@ const Blog = () => {
               Progress Reports
             </h2>
             <p className="text-portfolio-secondary mb-4">
-              Real talk about my freelancing journey
+              Short updates on what I'm working on
             </p>
             <div className="text-portfolio-muted font-mono text-sm">
-              Weekly updates on revenue, projects, and lessons learned.<br />
-              No sugar-coating, just the numbers and reality.
+              Periodic updates on projects, delivery notes, and lessons learned.
             </div>
           </div>
           
           {/* Subscribe Section */}
-          <div className="text-center">
-            <div className="bg-portfolio-card border border-portfolio-accent/30 rounded-lg p-8">
-              <h3 className="text-lg font-semibold text-portfolio-accent mb-4">
-                Want updates when I publish?
-              </h3>
-              <p className="text-portfolio-secondary mb-6">
-                I'll share insights on building products, freelancing reality, and technical deep dives.
-              </p>
-              <div className="text-portfolio-muted font-mono text-sm">
-                lucas@example.com - Just send me a message
-              </div>
-            </div>
-          </div>
+           <div className="text-center">
+             <div className="bg-portfolio-card border border-portfolio-accent/30 rounded-lg p-8">
+               <h3 className="text-lg font-semibold text-portfolio-accent mb-4">
+                Updates
+               </h3>
+               <p className="text-portfolio-secondary mb-6">
+                If you'd like to hear about new posts, send me an email.
+               </p>
+               <div className="text-portfolio-muted font-mono text-sm">
+                lucasan.videla@gmail.com
+               </div>
+             </div>
+           </div>
         </div>
       </section>
     </div>

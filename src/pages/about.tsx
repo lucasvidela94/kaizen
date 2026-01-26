@@ -14,53 +14,46 @@ const About = () => {
           <div className="prose prose-lg max-w-none">
             <div className="text-portfolio-secondary leading-relaxed space-y-6">
               <p>
-                Hey, I'm Lucas Videla - a full-stack developer who believes in shipping code that actually works.
+                I'm Lucas Videla, a full-stack engineer.
               </p>
               
               <p>
-                My journey started in technical support, working with hardware and troubleshooting systems.
-                Then I moved to community management, where I discovered SEO and HTML - my first taste of web development.
+                I started in technical support, working with hardware and troubleshooting systems.
+                Later I moved into community management, where I got hands-on with SEO and HTML and moved into web development.
               </p>
               
               <p>
-                Later, I transitioned to the corporate world, maintaining Django APIs for 15k+ companies at Logra.io.
-                But I quickly realized I wanted to build, not just maintain.
+                Professionally, I've worked on production systems such as Django APIs used by 15k+ companies at Logra.io.
               </p>
               
               <p>
-                So I took the leap into solo development, learned Elixir from scratch, and built a complete real estate CRM
-                that's currently managing real properties. Because why not?
+                I also build products end-to-end. One example is a real estate CRM in Elixir/Phoenix that is used to manage real properties.
               </p>
               
               <div className="bg-portfolio-card border border-portfolio-border rounded-lg p-6 my-8">
                 <p className="text-portfolio-accent font-medium text-lg">
-                  My philosophy? Build products that solve real problems and generate real revenue.
-                </p>
-                <p className="text-portfolio-secondary mt-4">
-                  Simple, but effective.
+                  I focus on reliable delivery: clear requirements, maintainable code, and predictable operations.
                 </p>
               </div>
               
               <p>
-                I care about technology, not bloat. That's why I don't follow the SaaS trend of using Next.js for everything.
-                I care about the web ecosystem and the client - because the client doesn't know and doesn't care about the technology.
-                But as a developer, my responsibility is to code with responsibility.
+                I choose stacks based on constraints: team size, time, long-term maintenance, and cost. The goal is a system that works and stays working.
               </p>
               
               <p>
-                I've shipped everything from mobile e-commerce apps to enterprise APIs, 
-                from pharmacy delivery systems to cinema management platforms.
+                I've worked across web apps, mobile apps, internal tooling, and APIs.
+              </p>
+
+              <p>
+                Recent work includes Latin Mundo (US finance backend), BeautyBarber (client platform), and AVAL System (mobile app + API, side work).
               </p>
               
               <p>
-                My approach is simple: structured thinking for the big picture, 
-                pragmatic execution for the details. I don't chase perfect tech stacks - 
-                I focus on shipping code that works.
+                My approach is structured: think through the system, then execute pragmatically.
               </p>
               
               <p>
-                When I'm not coding, you'll find me exploring new technologies, 
-                contributing to open source, or figuring out the next big thing to build.
+                Outside of work, I enjoy learning new tools and contributing to open source.
               </p>
             </div>
           </div>
@@ -68,7 +61,7 @@ const About = () => {
           {/* Currently Working On Section */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-portfolio-primary mb-8">
-              Currently working on
+              Current work
             </h2>
             <div className="bg-portfolio-card border border-portfolio-border rounded-lg p-8">
               <div className="flex items-start space-x-6">
@@ -94,7 +87,7 @@ const About = () => {
                     </a>
                   </div>
                   <p className="text-portfolio-secondary mb-4 leading-relaxed">
-                    Full-stack development agency specializing in custom software solutions. Building scalable applications and helping businesses grow through technology.
+                    Full-stack development agency focused on custom software. Building scalable applications and supporting teams with delivery.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
@@ -118,7 +111,7 @@ const About = () => {
           {/* Recently Built Section */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-portfolio-primary mb-8">
-              Recently built
+              Recent project
             </h2>
             <div className="bg-portfolio-card border border-portfolio-border rounded-lg p-8">
               <div className="flex items-start space-x-6">
@@ -144,7 +137,7 @@ const About = () => {
                     </a>
                   </div>
                   <p className="text-portfolio-secondary mb-4 leading-relaxed">
-                    Complete real estate management platform. Property listings, tenant management, and financial tracking in one unified system.
+                    Real estate management platform: listings, tenant workflows, and financial tracking in a single system.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
@@ -168,7 +161,7 @@ const About = () => {
           {/* Contact Section */}
           <div className="mt-16 bg-portfolio-card border border-portfolio-border rounded-lg p-8">
             <h2 className="text-2xl font-bold text-portfolio-primary mb-6">
-              Let's Connect
+              Contact
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-portfolio-accent">
               <a href="mailto:lucasan.videla@gmail.com" className="font-mono hover:text-portfolio-accent-glow transition-colors">

@@ -27,14 +27,6 @@ const SkillsSection = () => {
     ]
   };
 
-  const categoryIcons = {
-    languages: "☕",
-    frameworks: "📚", 
-    tools: "🛠️",
-    clouds: "☁️",
-    hardware: "🔌"
-  };
-
   const categoryTitles = {
     languages: "Languages",
     frameworks: "Frameworks and Libraries",
@@ -54,7 +46,6 @@ const SkillsSection = () => {
           {Object.entries(skills).map(([category, techList]) => (
             <div key={category} className="bg-portfolio-card border border-portfolio-border rounded-lg p-8">
               <div className="flex items-center mb-6">
-                <span className="text-2xl mr-3">{categoryIcons[category as keyof typeof categoryIcons]}</span>
                 <h3 className="text-xl font-semibold text-portfolio-primary">
                   {categoryTitles[category as keyof typeof categoryTitles]}
                 </h3>

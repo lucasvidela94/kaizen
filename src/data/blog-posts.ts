@@ -3,24 +3,24 @@ import { BlogPost } from '@/types/blog';
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
-    title: "Why I switched from employee to solo developer",
+    title: "From employee to independent developer",
     slug: "why-i-switched-from-employee-to-solo-developer",
-    description: "The reality behind leaving the corporate grind",
-    excerpt: "After 5 years in corporate tech, I decided to take the leap into solo development. Here's what I learned about the transition, the challenges, and the unexpected benefits...",
+    description: "Notes on the transition",
+    excerpt: "After a few years in corporate work, I moved into independent work. These are the practical tradeoffs, what changed, and what I would do differently.",
     content: `
-# Why I switched from employee to solo developer
+# From employee to independent developer
 
-After 5 years in corporate tech, I decided to take the leap into solo development. Here's what I learned about the transition, the challenges, and the unexpected benefits.
+After a few years in corporate work, I moved into independent work. This post is not a manifesto, just a practical summary of what changed and what I learned.
 
 ## The Decision
 
-The decision wasn't made overnight. It was a gradual realization that I wanted more control over my work, my schedule, and the projects I worked on.
+The decision wasn't made overnight. I wanted more control over priorities, delivery, and the type of problems I work on.
 
-Working in a corporate environment taught me a lot, but I felt constrained by:
+Working in a corporate environment taught me a lot, but it comes with tradeoffs:
 
 - **Limited project choice**: Working on what the company prioritized
 - **Bureaucracy**: Endless meetings and approval processes
-- **Salary ceiling**: Fixed compensation regardless of value delivered
+- **Compensation structure**: Often tied to role bands rather than impact
 - **Technical debt**: Maintaining legacy systems instead of building new ones
 
 ## The Benefits
@@ -43,9 +43,7 @@ Despite the challenges, there are incredible benefits that make the transition w
 
 ## Conclusion
 
-The transition to solo development has been challenging but rewarding. It's not for everyone, but if you're considering it, start planning early and build your safety net.
-
-**The best time to plant a tree was 20 years ago. The second best time is now.**
+The transition has been challenging but rewarding. It's not for everyone, but if you're considering it, plan early and build a safety net.
     `,
     author: "Lucas",
     publishedAt: "2025-01-15",
@@ -58,14 +56,14 @@ The transition to solo development has been challenging but rewarding. It's not 
   },
   {
     id: '2',
-    title: "Building a CRM in Elixir (and why it's actually good)",
+    title: "Building a CRM in Elixir",
     slug: "building-crm-elixir-why-its-good",
-    description: "Technical deep dive into Phoenix and OTP patterns",
-    excerpt: "When most developers reach for Rails or Django for building a CRM, I chose Elixir and Phoenix. Here's why this was the right choice and how OTP patterns made the difference...",
+    description: "Phoenix and OTP patterns in practice",
+    excerpt: "I built a CRM in Elixir/Phoenix. This is a technical walk-through of the concurrency model, OTP patterns, and where it helped in production.",
     content: `
-# Building a CRM in Elixir (and why it's actually good)
+# Building a CRM in Elixir
 
-When most developers reach for Rails or Django for building a CRM, I chose Elixir and Phoenix. Here's why this was the right choice and how OTP patterns made the difference.
+I built a CRM in Elixir and Phoenix. This post covers why I chose it, where it helped, and how OTP patterns showed up in day-to-day engineering.
 
 ## Why Elixir for a CRM?
 
@@ -106,17 +104,13 @@ defmodule CRM.Contacts.ContactServer do
 end
 \`\`\`
 
-## Performance Results
+## Performance notes
 
-The Elixir CRM significantly outperformed our expectations:
-
-- **Average response time**: 50ms vs 200ms in Rails
-- **Concurrent users**: 10,000+ vs 1,000 in Rails
-- **Memory usage**: 50% less than equivalent Rails app
+In my workload, the system handled concurrency comfortably and stayed stable under load. The main wins were predictability and operational resilience.
 
 ## Conclusion
 
-Elixir and Phoenix proved to be excellent choices for building a CRM. The performance gains and reliability improvements made the learning curve worthwhile.
+Elixir and Phoenix were a good fit for this CRM. The learning curve is real, but the runtime model and OTP patterns made the system easier to operate.
     `,
     author: "Lucas",
     publishedAt: "2025-01-20",
@@ -129,14 +123,14 @@ Elixir and Phoenix proved to be excellent choices for building a CRM. The perfor
   },
   {
     id: '3',
-    title: "The reality of being a one-person tech team",
+    title: "Running projects solo",
     slug: "reality-one-person-tech-team",
-    description: "What they don't tell you about going solo",
-    excerpt: "Being a one-person tech team means you're responsible for everything. From development to deployment, from design to customer support. Here's the unfiltered truth...",
+    description: "Tradeoffs and practical habits",
+    excerpt: "When you work solo you cover product, engineering, delivery, and support. These are the tradeoffs and a few habits that keep the work sustainable.",
     content: `
-# The reality of being a one-person tech team
+# Running projects solo
 
-Being a one-person tech team means you're responsible for everything. From development to deployment, from design to customer support. Here's the unfiltered truth.
+Working solo means you're responsible for product decisions, engineering, delivery, and support. It can be effective, but you need guardrails.
 
 ## The Good
 
@@ -154,13 +148,11 @@ Being a one-person tech team means you're responsible for everything. From devel
 
 ## Strategies for Survival
 
-### 1. Automate Everything
+### 1. Automate the routine
 \`\`\`bash
 #!/bin/bash
-git pull origin main
-npm install
-npm run build
-pm2 restart app
+# Example: automate deploy steps you repeat often
+# (the exact commands depend on your stack)
 \`\`\`
 
 ### 2. Use Managed Services
@@ -170,7 +162,7 @@ pm2 restart app
 
 ## Conclusion
 
-Being a one-person tech team is challenging but rewarding. The key is to accept your limitations, automate what you can, and focus on what you do best.
+Solo work can be sustainable if you keep scope tight, automate the routine, and use managed services where it reduces operational risk.
     `,
     author: "Lucas",
     publishedAt: "2025-01-25",
@@ -183,28 +175,28 @@ Being a one-person tech team is challenging but rewarding. The key is to accept 
   },
   {
     id: '4',
-    title: "Rethinking the bloat: A Chrome tab shouldn't consume 500MB of RAM",
+    title: "Web bloat and tradeoffs",
     slug: "rethinking-web-bloat",
-    description: "Why the web ecosystem is over-engineered and what we can do about it",
-    excerpt: "Nobody thinks about the client anymore. We keep adding layers of complexity instead of using proven solutions like Rails. The web is full of bloat...",
+    description: "Performance, tooling, and constraints",
+    excerpt: "A practical look at how complexity accumulates in web stacks, and what tends to improve performance and maintainability.",
     content: `
-# Rethinking the bloat: A Chrome tab shouldn't consume 500MB of RAM
+# Web bloat and tradeoffs
 
-Nobody thinks about the client anymore. We keep adding layers of complexity instead of using proven solutions like Rails. The web is full of bloat, and it's getting worse.
+Complexity accumulates quickly in web stacks. Some of it is justified; some of it is accidental. This post is about how to think about tradeoffs with performance, maintainability, and delivery speed.
 
 ## The Problem
 
-A single Chrome tab shouldn't consume almost 500MB of RAM. But here we are, in 2025, where opening a "simple" website requires more resources than running a full operating system a decade ago.
+It's common to see "simple" sites ship a lot of JavaScript, heavy dependencies, and expensive runtime behavior. The cost is paid by users and by teams maintaining the system.
 
-### Why is this happening?
+### Why does it happen?
 
 - **Over-engineering**: We're adding complexity where simplicity would work
 - **Framework bloat**: Every new "modern" framework adds another layer
-- **Developer convenience over user experience**: We optimize for development speed, not performance
+- **Incentives**: We often optimize for delivery speed and onboarding, sometimes at the expense of runtime performance
 
-## The Rails Example
+## A Rails example
 
-Rails has been solving web development problems for 18 years. It's battle-tested, mature, and efficient. But instead of using proven solutions, we keep reinventing the wheel.
+Rails is one example of a mature framework with strong conventions. It is not the answer to everything, but it shows how far you can go with consistent patterns and a stable ecosystem.
 
 ### What Rails gets right:
 - **Convention over configuration**: Less decisions, more productivity
@@ -212,43 +204,26 @@ Rails has been solving web development problems for 18 years. It's battle-tested
 - **Performance**: Optimized over years of real-world usage
 - **Developer happiness**: Actually enjoyable to work with
 
-## The JavaScript Ecosystem Problem
+## The JavaScript ecosystem
 
-The JS ecosystem is over-engineered, starting with Node.js itself. We've created a monster where:
+The JS ecosystem moves fast. That can be good, but it also encourages churn:
 - **Simple HTML needs 16GB of RAM** to develop
 - **Every tool requires its own build system**
 - **Dependencies on dependencies on dependencies**
 
-### React's Absurd Backward Compatibility
+### Compatibility and constraints
 
-React's policy of maintaining backward compatibility at all costs is preventing fundamental fixes. Instead of correcting core issues, we keep adding workarounds.
-
-## AI and Framework Bias
-
-Generative AIs have a clear preference for React, but they could benefit from alternatives like:
-- **Preact**: Smaller, faster React alternative
-- **Solid**: Truly reactive, no virtual DOM
-- **Qwik**: Resumable applications, instant loading
-
-But the AI training data is biased toward React, creating a self-reinforcing cycle.
+Large ecosystems carry compatibility constraints. The cost shows up as long-lived APIs, migration work, and incremental solutions.
 
 ## The Business Problem
 
-Companies choose React because it's the "safe" choice, but the ecosystem gets more complex over time. Many misunderstand Laravel, which actually solves problems elegantly.
+Teams often choose popular stacks because hiring and onboarding are easier. That can be a rational decision, but it can also increase complexity over time.
 
 ### The paradox:
 - **React is "safe"** because everyone uses it
 - **Everyone uses it** because it's "safe"
 - **The ecosystem grows** more complex and bloated
 - **Performance suffers** but we accept it as normal
-
-## The Bun Revolution
-
-Thankfully, Bun appeared and unified many things. It's a reminder that we can do better, that we don't need the complexity we've created.
-
-## The Irony
-
-This very site is built with React and Tailwind. But in the next update, it's moving to Solid.js. Because sometimes you have to practice what you preach.
 
 ## What We Can Do
 
@@ -265,11 +240,7 @@ This very site is built with React and Tailwind. But in the next update, it's mo
 
 ## Conclusion
 
-The web doesn't need to be this complicated. We've created problems that don't exist, solved them with over-engineered solutions, and called it progress.
-
-It's time to step back and ask: **What are we actually trying to solve?**
-
-Because right now, we're solving developer problems at the expense of user experience. And that's not sustainable.
+Most teams can improve performance and stability without a full rewrite: ship less JavaScript, measure what matters, and prefer boring solutions when they fit.
     `,
     author: "Lucas",
     publishedAt: "2025-01-30",
