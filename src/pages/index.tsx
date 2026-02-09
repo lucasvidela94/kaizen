@@ -129,11 +129,11 @@ const Index = () => {
             <p className="text-lg text-portfolio-secondary mb-6">
               If you need someone who can take ownership and ship, reach out.
             </p>
-            <div className="flex items-center justify-center space-x-4 text-portfolio-accent">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 text-portfolio-accent">
               <a href="mailto:lucasan.videla@gmail.com" className="font-mono hover:text-portfolio-accent-glow transition-colors">
                 lucasan.videla@gmail.com
               </a>
-              <span>or</span>
+              <span className="hidden sm:inline">or</span>
               <a href="https://github.com/lucasvidela94" target="_blank" rel="noopener noreferrer" className="font-mono hover:text-portfolio-accent-glow transition-colors">
                 GitHub @lucasvidela94
               </a>
