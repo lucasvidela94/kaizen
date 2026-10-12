@@ -40,6 +40,21 @@ const Index = () => {
 
   const personalProjects = [
     {
+      title: "Socrates (AI tooling for teachers)",
+      description: "Desktop assistant for teachers where every AI output is reviewed by a human before it is used.",
+      tech: "Tech: TypeScript"
+    },
+    {
+      title: "hush",
+      description: "Keeps API keys out of AI agent chats: agents can use secrets without ever seeing them.",
+      tech: "Tech: Golang"
+    },
+    {
+      title: "pi-google-services (MCP server)",
+      description: "MCP server for Google Workspace with 26 tools and OAuth login, so AI agents can work with Gmail, Calendar and Drive.",
+      tech: "Tech: Golang, MCP, OAuth"
+    },
+    {
       title: "E-commerce marketplace",
       description: "Built an e-commerce platform with payments and operational tooling, with an emphasis on security and maintainability.",
       tech: "Tech: Astro, Payment gateways"
