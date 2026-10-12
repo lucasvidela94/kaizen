@@ -43,7 +43,7 @@ Husky runs lint-staged (oxfmt, oxlint) and `pnpm typecheck` on commit.
 
 ## Deploy
 
-Cloudflare Workers serving `dist/` as static assets (`wrangler.jsonc`). Every push to `main` deploys through `.github/workflows/ci.yml` after lint, typecheck and build pass; pull requests run the checks only. The workflow reads the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. `pnpm cf:deploy` deploys by hand.
+Cloudflare Workers serving `dist/` as static assets (`wrangler.jsonc`). Every push to `main` deploys through `.github/workflows/ci.yml` after lint, typecheck and build pass; pull requests run the checks only. The workflow reads the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. `pnpm cf:deploy` deploys by hand. The `lucasvidela.com.ar` custom domain is declared under `routes` in `wrangler.jsonc`; keep it there so recreating the Worker re-attaches it.
 
 Trailing slashes are dropped by `html_handling`, matching `trailingSlash: "never"` in `astro.config.mjs`; change both together.
 
