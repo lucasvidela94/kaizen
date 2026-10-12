@@ -1,0 +1,27 @@
+# Lucas Videla
+
+> Full-stack engineer from Comodoro Rivadavia, Argentina. Builds reliable web and mobile systems in Elixir, TypeScript, Go and Ruby on Rails, and open source tooling for AI agents. Currently at Magma Labs. Available for contract work and consulting.
+
+Contact: lucasan.videla@gmail.com
+
+## Site
+
+- [Portfolio](https://lucasvidela.com.ar/): professional work, products, open source projects and skills
+- [About](https://lucasvidela.com.ar/about): background, current work and resume
+- [Blog](https://lucasvidela.com.ar/blog): notes on independent development, Elixir, solo teams and web performance
+- [Resume (PDF)](https://lucasvidela.com.ar/cv_lucasvidela.pdf)
+
+## Open source
+
+- [hush](https://github.com/lucasvidela94/hush): keeps API keys out of AI agent chats (Go)
+- [pi-google-services](https://github.com/lucasvidela94/pi-google-services): Google Workspace MCP server, 26 tools (Go)
+- [jira-mcp](https://github.com/lucasvidela94/jira-mcp): Jira Cloud MCP server (Go)
+- [gmaps-mcp](https://github.com/lucasvidela94/gmaps-mcp): Google Places MCP server (Go)
+- [gecko](https://github.com/lucasvidela94/gecko): agent skill and CLI that removes orphaned code
+- [explainer](https://github.com/lucasvidela94/explainer): agent skill that explains PRs and concepts
+- [opencode-pstack](https://github.com/lucasvidela94/opencode-pstack): rigorous engineering skills for coding agents
+- [TinyShell](https://github.com/lucasvidela94/tinyagent): terminal agent for old low-resource PCs (C)
+
+## Profiles
+
+- [GitHub](https://github.com/lucasvidela94)

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#13151a"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#171a20" stroke="#2a2e37" stroke-width="2"/>
+  <text x="120" y="150" font-family="Noto Sans Mono, monospace" font-size="28" fill="#6fd6c9">lucasvidela.com.ar</text>
+  <text x="120" y="290" font-family="Noto Sans, sans-serif" font-weight="700" font-size="96" fill="#e8ecf1">Lucas Videla</text>
+  <text x="120" y="370" font-family="Noto Sans, sans-serif" font-size="44" fill="#a7b0bd">Full-stack engineer focused on reliable delivery</text>
+  <text x="120" y="500" font-family="Noto Sans Mono, monospace" font-size="30" fill="#6fd6c9">Elixir · TypeScript · Go · AI tooling</text>
+</svg>

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navigation from "@/components/navigation";
+import Seo from "@/components/seo";
+import { pageMeta } from "@/lib/site";
 import { BlogCard } from "@/components/blog-card";
 import { BlogFiltersComponent } from "@/components/blog-filters";
 import { useBlogFilters } from "@/hooks/use-blog-filters";
@@ -39,6 +41,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
+      <Seo {...pageMeta.blog} />
+      <main>
       
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -147,6 +151,7 @@ const Blog = () => {
            </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import Navigation from "@/components/navigation";
 import ProjectCard from "@/components/project-card";
 import SkillsSection from "@/components/skills-section";
+import Seo from "@/components/seo";
+import { pageMeta } from "@/lib/site";
 // import MeteorRain from "@/components/meteor-rain";
 
 const Index = () => {
@@ -61,7 +63,41 @@ const Index = () => {
     }
   ];
 
+  const products = [
+    {
+      title: "Caduceus",
+      description: "Desktop application for medical practice management. Local-first and offline: patient records, search and CSV/JSON export stay on the clinic's own computers, with no cloud or subscription.",
+      tech: "Tech: TypeScript, RxDB, desktop app",
+      href: "https://github.com/lucasvidela94/caduceus"
+    },
+    {
+      title: "Yoyaku",
+      description: "Medical appointment scheduling desktop app with patients, agenda and settings. Offline-first on a local SQLite database, with cryptographic license validation.",
+      tech: "Tech: Golang, Wails, React, SQLite",
+      href: "https://github.com/lucasvidela94/yoyaku"
+    },
+    {
+      title: "Inverso",
+      description: "Free tool to compare investments in Argentina: explore options with filters, compare brokers and commissions, and project returns. 100% frontend, with market data collected by scraping.",
+      tech: "Tech: SolidJS, Vite, Tailwind, Playwright",
+      href: "https://github.com/lucasvidela94/inverso"
+    },
+    {
+      title: "Elenchos",
+      description: "Registration and traceability system for municipal activities. Records are anchored on the Polygon blockchain through audited smart contracts, so they cannot be altered afterwards.",
+      tech: "Tech: Solidity, Foundry, Fastify, React, wagmi",
+      href: "https://github.com/lucasvidela94/elenchos"
+    }
+  ];
+
   const openSource = [
+    {
+      title: "TinyShell",
+      description: "General-purpose terminal agent for old, low-resource PCs: one small 32-bit binary written in C for Windows 7+ and old x86 Linux. The model runs remotely through any OpenAI-compatible API, and you approve every command before it runs. Prototype.",
+      tech: "Tech: C, Windows 7+, Linux, OpenAI-compatible APIs",
+      highlight: true,
+      href: "https://github.com/lucasvidela94/tinyagent"
+    },
     {
       title: "hush",
       description: "Keeps API keys out of AI agent chats: vault, redacting runner and MCP server, so agents can use secrets without ever seeing them.",
@@ -105,12 +141,6 @@ const Index = () => {
       href: "https://github.com/lucasvidela94/opencode-pstack"
     },
     {
-      title: "TinyShell",
-      description: "Terminal agent for old, low-resource PCs: a single small 32-bit binary in C where you approve every command. Prototype.",
-      tech: "Tech: C, Windows 7+, Linux",
-      href: "https://github.com/lucasvidela94/tinyagent"
-    },
-    {
       title: "mdev-helper",
       description: "CLI that diagnoses, cleans and repairs React Native, Flutter and Ionic development environments with a single command.",
       tech: "Tech: Golang",
@@ -128,6 +158,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-hero">
       {/* <MeteorRain /> */}
       <Navigation />
+      <Seo {...pageMeta.home} />
+      <main>
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
@@ -187,6 +219,29 @@ const Index = () => {
       <section className="pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-portfolio-primary mb-4">
+            Products
+          </h2>
+          <p className="text-portfolio-secondary mb-12">
+            Applications I designed and built end to end, from local-first desktop tools to blockchain systems.
+          </p>
+
+          <div className="grid gap-8">
+            {products.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
+                href={project.href}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-portfolio-primary mb-4">
             Open source
           </h2>
           <p className="text-portfolio-secondary mb-12">
@@ -200,6 +255,7 @@ const Index = () => {
                 title={project.title}
                 description={project.description}
                 tech={project.tech}
+                highlight={project.highlight}
                 href={project.href}
               />
             ))}
@@ -232,6 +288,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };

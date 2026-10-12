@@ -1,9 +1,13 @@
 import Navigation from "@/components/navigation";
+import Seo from "@/components/seo";
+import { pageMeta } from "@/lib/site";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
+      <Seo {...pageMeta.about} />
+      <main>
       
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-3xl mx-auto">
@@ -210,6 +214,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };

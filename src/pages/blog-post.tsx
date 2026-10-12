@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2 } from 'lucide-react';
 import { format } from 'date-fns';
 import { getPostBySlug, getAllPosts, renderMarkdown } from '@/lib/markdown';
 import Navigation from '@/components/navigation';
+import Seo from '@/components/seo';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -16,6 +17,8 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-gradient-hero">
         <Navigation />
+        <Seo title="Post not found | Lucas Videla" description="This blog post does not exist." path={`/blog/${slug ?? ''}`} noindex />
+        <main>
         <section className="pt-32 pb-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-portfolio-primary mb-4">
@@ -32,6 +35,7 @@ const BlogPost = () => {
             </Link>
           </div>
         </section>
+        </main>
       </div>
     );
   }
@@ -65,6 +69,8 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
+      <Seo title={`${post.title} | Lucas Videla`} description={post.excerpt || post.description} path={`/blog/${post.slug}`} type="article" />
+      <main>
       
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -166,6 +172,7 @@ const BlogPost = () => {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };

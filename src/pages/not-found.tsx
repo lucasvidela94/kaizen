@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/navigation";
+import Seo from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
@@ -15,6 +16,8 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
+      <Seo title="Page not found | Lucas Videla" description="The page you are looking for does not exist or has been moved." path={location.pathname} noindex />
+      <main>
       
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
@@ -45,6 +48,7 @@ const NotFound = () => {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };
