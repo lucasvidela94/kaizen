@@ -31,6 +31,7 @@ Everything else has one home:
 - A new page takes its title and description from `pageMeta` in `src/data/site.ts` and renders inside `layouts/base-layout.astro`, which wires SEO, canonical and theme.
 - `src/pages/llms.txt.ts` is generated from `src/data/projects.ts`; update projects there only.
 - Navigation is client-side (`ClientRouter` in `base-layout.astro`), so pages do not reload and fonts do not flash. Scripts that touch page elements bind inside an `astro:page-load` listener; document-level listeners (theme toggle) bind once.
+- Discoverability: `llms.txt`, `llms-full.txt`, the per-post `/blog/<slug>.md` mirrors, `rss.xml` and the sitemap are generated from `src/data` and `src/content`; add content there and they follow. Page JSON-LD lives in `src/lib/schema.ts`. `robots.txt` welcomes AI crawlers on purpose, and the Cloudflare zone's "Block AI bots" setting must stay off or it returns 403 to GPTBot, ClaudeBot and others.
 - Private GitHub repos stay out of the site.
 - Visual language: paper and ink, one indigo accent (`portfolio-mark`), serif headings (Shippori Mincho) over sans body (Zen Kaku Gothic New), hairline-ruled rows instead of boxed cards, no decorative cultural motifs. Fonts load through the Fontsource provider in `astro.config.mjs`; the Google provider pulls hundreds of CJK slices.
 

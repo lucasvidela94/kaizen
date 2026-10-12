@@ -6,9 +6,10 @@ import ProjectSection from "../components/organisms/project-section.astro";
 import SkillsSection from "../components/organisms/skills-section.astro";
 import { openSource, products, professionalWork, selectedBuilds } from "../data/projects";
 import { pageMeta } from "../data/site";
+import { homeSchema } from "../lib/schema";
 ---
 
-<BaseLayout {...pageMeta.home} person>
+<BaseLayout {...pageMeta.home} schema={homeSchema}>
   <Hero />
   <ProjectSection id="work" title="Professional work" projects={professionalWork} />
   <ProjectSection title="Selected builds" projects={selectedBuilds} />

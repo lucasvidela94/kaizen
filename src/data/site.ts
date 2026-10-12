@@ -7,17 +7,17 @@ export const OG_IMAGE_PATH = "/og-image.png";
 
 export const pageMeta = {
   home: {
-    title: "Lucas Videla | Full-stack Developer",
+    title: "Lucas Videla | Full-stack Developer (Elixir, TypeScript, Go)",
     description:
-      "Full-stack engineer building reliable web and mobile systems in Elixir, TypeScript and Go. Open source tools for AI agents. Available for contract work and consulting.",
+      "Full-stack developer in Patagonia, Argentina. Elixir, TypeScript and Go for web and mobile products, plus open source AI agent tools. Open to contract work.",
   },
   about: {
-    title: "About | Lucas Videla",
+    title: "About Lucas Videla | Full-stack Developer",
     description:
       "Full-stack engineer from Argentina. From technical support to production systems used by 15k+ companies, a real estate CRM in Elixir and open source AI tooling.",
   },
   blog: {
-    title: "Blog | Lucas Videla",
+    title: "Engineering Blog | Lucas Videla",
     description:
       "Notes on engineering, product decisions, and what I learn while building and maintaining software as an independent developer.",
   },

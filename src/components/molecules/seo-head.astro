@@ -6,9 +6,11 @@ interface Props {
   description: string;
   type?: "website" | "article";
   noindex?: boolean;
+  published?: Date;
+  tags?: string[];
 }
 
-const { title, description, type = "website", noindex = false } = Astro.props;
+const { title, description, type = "website", noindex = false, published, tags = [] } = Astro.props;
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const canonical = new URL(path, SITE_URL).href;
@@ -28,6 +30,10 @@ const image = new URL(OG_IMAGE_PATH, SITE_URL).href;
 <meta property="og:image" content={image} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+{published && <meta property="article:published_time" content={published.toISOString()} />}
+<meta property="article:author" content={SITE_NAME} />
+{tags.map((tag) => <meta property="article:tag" content={tag} />)}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />

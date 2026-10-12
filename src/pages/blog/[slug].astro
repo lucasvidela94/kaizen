@@ -5,6 +5,7 @@ import PageSection from "../../components/atoms/page-section.astro";
 import PostHeader from "../../components/organisms/post-header.astro";
 import RelatedPosts from "../../components/organisms/related-posts.astro";
 import { getPublishedPosts, getRelatedPosts } from "../../lib/posts";
+import { postSchema } from "../../lib/schema";
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -18,7 +19,15 @@ const { post, related } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={`${post.data.title} | Lucas Videla`} description={post.data.excerpt} type="article">
+<BaseLayout
+  title={`${post.data.title} | Lucas Videla`}
+  description={post.data.excerpt}
+  type="article"
+  schema={postSchema(post)}
+  markdownHref={`/blog/${post.id}.md`}
+  published={post.data.publishedAt}
+  tags={post.data.tags}
+>
   <PageSection class="pt-3 pb-16">
     <a href="/blog" class="mb-6 inline-block text-xs tracking-wider text-portfolio-muted uppercase transition-colors hover:text-portfolio-primary">
       &larr; Blog

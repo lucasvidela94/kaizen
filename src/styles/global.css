@@ -92,12 +92,12 @@
   position: absolute;
   inset: 0;
   background: var(--color-portfolio-accent);
-  mask: url("/halftone-light.png") 50% 62% / cover no-repeat;
+  mask: url("/halftone-light.webp") 50% 62% / cover no-repeat;
   opacity: 0.55;
 }
 
 .dark .halftone::before {
-  mask-image: url("/halftone.png");
+  mask-image: url("/halftone.webp");
   opacity: 0.4;
 }
 

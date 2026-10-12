@@ -5,27 +5,20 @@ import "../styles/global.css";
 import SeoHead from "../components/molecules/seo-head.astro";
 import SiteFooter from "../components/organisms/site-footer.astro";
 import SiteHeader from "../components/organisms/site-header.astro";
-import { SITE_EMAIL, SITE_NAME, SITE_URL, GITHUB_URL } from "../data/site";
+import { GITHUB_URL, SITE_NAME } from "../data/site";
 
 interface Props {
   title: string;
   description: string;
   type?: "website" | "article";
   noindex?: boolean;
-  person?: boolean;
+  schema?: object;
+  markdownHref?: string;
+  published?: Date;
+  tags?: string[];
 }
 
-const { title, description, type, noindex, person = false } = Astro.props;
-
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: SITE_NAME,
-  url: `${SITE_URL}/`,
-  jobTitle: "Full-stack Engineer",
-  email: SITE_EMAIL,
-  sameAs: [GITHUB_URL],
-};
+const { title, description, type, noindex, schema, markdownHref, published, tags } = Astro.props;
 ---
 
 <!doctype html>
@@ -37,10 +30,15 @@ const personSchema = {
     <meta name="color-scheme" content="dark light" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <Font cssVariable="--astro-font-display" preload />
-    <Font cssVariable="--astro-font-mono" preload />
-    <SeoHead {title} {description} {type} {noindex} />
-    {person && <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
+    <Font cssVariable="--astro-font-display" preload={[{ style: "normal" }]} />
+    <Font cssVariable="--astro-font-mono" preload={[{ weight: 400 }]} />
+    <SeoHead {title} {description} {type} {noindex} {published} {tags} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE_NAME} href="/rss.xml" />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
+    <link rel="me" href={GITHUB_URL} />
     <script is:inline>
       const applyTheme = () => {
         try {
