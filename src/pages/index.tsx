@@ -45,16 +45,6 @@ const Index = () => {
       tech: "Tech: TypeScript"
     },
     {
-      title: "hush",
-      description: "Keeps API keys out of AI agent chats: agents can use secrets without ever seeing them.",
-      tech: "Tech: Golang"
-    },
-    {
-      title: "pi-google-services (MCP server)",
-      description: "MCP server for Google Workspace with 26 tools and OAuth login, so AI agents can work with Gmail, Calendar and Drive.",
-      tech: "Tech: Golang, MCP, OAuth"
-    },
-    {
       title: "E-commerce marketplace",
       description: "Built an e-commerce platform with payments and operational tooling, with an emphasis on security and maintainability.",
       tech: "Tech: Astro, Payment gateways"
@@ -68,6 +58,69 @@ const Index = () => {
       title: "CLI time tracking",
       description: "Command-line time tracking tool focused on speed and clear reporting.",
       tech: "Tech: Golang"
+    }
+  ];
+
+  const openSource = [
+    {
+      title: "hush",
+      description: "Keeps API keys out of AI agent chats: vault, redacting runner and MCP server, so agents can use secrets without ever seeing them.",
+      tech: "Tech: Golang, MCP",
+      href: "https://github.com/lucasvidela94/hush"
+    },
+    {
+      title: "pi-google-services",
+      description: "Google Calendar, Gmail, Tasks, Drive and Contacts MCP server. 26 tools, single binary, OAuth login.",
+      tech: "Tech: Golang, MCP, OAuth",
+      href: "https://github.com/lucasvidela94/pi-google-services"
+    },
+    {
+      title: "jira-mcp",
+      description: "MCP server for Jira Cloud: search, create, update, transition and comment on issues from any MCP-compatible AI client. OAuth 2.0, Docker image, HTTP/SSE transport.",
+      tech: "Tech: Golang, MCP",
+      href: "https://github.com/lucasvidela94/jira-mcp"
+    },
+    {
+      title: "gmaps-mcp",
+      description: "Read-only MCP server for the Google Places API: search businesses by text or location and get phone, website and opening hours.",
+      tech: "Tech: Golang, MCP",
+      href: "https://github.com/lucasvidela94/gmaps-mcp"
+    },
+    {
+      title: "gecko",
+      description: "Deletion as an output: a portable agent skill and zero-dependency CLI that makes removing orphaned code a required step of every change.",
+      tech: "Tech: Shell, agent skills",
+      href: "https://github.com/lucasvidela94/gecko"
+    },
+    {
+      title: "explainer",
+      description: "Agent skill that explains any PR, change or concept at the right level: controlled text, a diagram or interactive HTML.",
+      tech: "Tech: Agent skills",
+      href: "https://github.com/lucasvidela94/explainer"
+    },
+    {
+      title: "opencode-pstack",
+      description: "Portable port of 45 rigorous engineering skills for OpenCode, Claude Code and Codex, built around verifiable agent workflows.",
+      tech: "Tech: Agent skills, Python",
+      href: "https://github.com/lucasvidela94/opencode-pstack"
+    },
+    {
+      title: "TinyShell",
+      description: "Terminal agent for old, low-resource PCs: a single small 32-bit binary in C where you approve every command. Prototype.",
+      tech: "Tech: C, Windows 7+, Linux",
+      href: "https://github.com/lucasvidela94/tinyagent"
+    },
+    {
+      title: "mdev-helper",
+      description: "CLI that diagnoses, cleans and repairs React Native, Flutter and Ionic development environments with a single command.",
+      tech: "Tech: Golang",
+      href: "https://github.com/lucasvidela94/mdev-helper"
+    },
+    {
+      title: "github-notifier",
+      description: "System tray app that delivers desktop notifications for GitHub pull request comments and review requests.",
+      tech: "Tech: Golang, SQLite",
+      href: "https://github.com/lucasvidela94/github-notifier"
     }
   ];
 
@@ -125,6 +178,29 @@ const Index = () => {
                 title={project.title}
                 description={project.description}
                 tech={project.tech}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-portfolio-primary mb-4">
+            Open source
+          </h2>
+          <p className="text-portfolio-secondary mb-12">
+            Tools for working with AI agents, plus a few developer utilities. Everything is on GitHub.
+          </p>
+
+          <div className="grid gap-8">
+            {openSource.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
+                href={project.href}
               />
             ))}
           </div>

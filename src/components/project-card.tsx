@@ -3,9 +3,10 @@ interface ProjectCardProps {
   description: string;
   tech: string;
   highlight?: boolean;
+  href?: string;
 }
 
-const ProjectCard = ({ title, description, tech, highlight = false }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tech, highlight = false, href }: ProjectCardProps) => {
   return (
     <div className={`
       bg-portfolio-card border border-portfolio-border rounded-lg p-6 
@@ -13,7 +14,18 @@ const ProjectCard = ({ title, description, tech, highlight = false }: ProjectCar
       ${highlight ? 'shadow-glow' : 'hover:shadow-card'}
     `}>
       <h3 className="text-lg font-semibold text-portfolio-primary mb-3">
-        {title}
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-portfolio-accent transition-colors"
+          >
+            {title}
+          </a>
+        ) : (
+          title
+        )}
       </h3>
       <p className="text-portfolio-secondary mb-4 leading-relaxed">
         {description}
