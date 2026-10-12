@@ -1,13 +1,17 @@
 ---
+import PageSection from "../atoms/page-section.astro";
+import SectionTitle from "../atoms/section-title.astro";
 import SkillGroup from "../molecules/skill-group.astro";
 import { skillGroups } from "../../data/skills";
 ---
 
-<section class="px-6 py-20">
-  <div class="mx-auto max-w-4xl">
-    <h2 class="mb-12 text-center text-3xl font-bold text-portfolio-primary">Skills & Technologies</h2>
-    <div class="space-y-12">
+<PageSection>
+  <div class="grid gap-8 md:grid-cols-[13rem_1fr] md:gap-12">
+    <div class="md:sticky md:top-8 md:self-start">
+      <SectionTitle title="Skills" description="Languages, frameworks, tools and providers I work with." />
+    </div>
+    <div class="border-b border-portfolio-border">
       {skillGroups.map((group) => <SkillGroup {...group} />)}
     </div>
   </div>
-</section>
+</PageSection>

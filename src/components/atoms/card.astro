@@ -10,9 +10,9 @@ const { highlight = false, interactive = true, class: className } = Astro.props;
 
 <div
   class:list={[
-    "rounded-lg border border-portfolio-border bg-portfolio-card p-6",
-    interactive && "transition-all duration-300 hover:border-portfolio-accent/50",
-    highlight ? "shadow-glow" : interactive && "hover:shadow-card",
+    "rounded-sm border border-portfolio-border bg-portfolio-card/60 p-6",
+    interactive && "transition-colors duration-300 hover:border-portfolio-accent/60",
+    highlight && "border-l-2 border-l-portfolio-mark",
     className,
   ]}
 >

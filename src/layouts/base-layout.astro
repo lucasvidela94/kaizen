@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
 import SeoHead from "../components/molecules/seo-head.astro";
 import SiteHeader from "../components/organisms/site-header.astro";
@@ -33,6 +34,8 @@ const personSchema = {
     <meta name="author" content={SITE_NAME} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <Font cssVariable="--font-mincho" preload />
+    <Font cssVariable="--font-gothic" preload />
     <SeoHead {title} {description} {type} {noindex} />
     {person && <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
     <script is:inline>
@@ -43,7 +46,7 @@ const personSchema = {
       } catch {}
     </script>
   </head>
-  <body class="min-h-screen bg-gradient-hero">
+  <body class="paper min-h-screen">
     <SiteHeader />
     <main>
       <slot />

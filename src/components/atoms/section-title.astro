@@ -8,7 +8,7 @@ interface Props {
 const { title, description, level: Heading = "h2" } = Astro.props;
 ---
 
-<div class="mb-12">
-  <Heading class="text-3xl font-bold text-portfolio-primary">{title}</Heading>
-  {description && <p class="mt-4 text-portfolio-secondary">{description}</p>}
+<div>
+  <Heading class="text-3xl">{title}</Heading>
+  {description && <p class="mt-4 text-sm leading-relaxed text-portfolio-muted">{description}</p>}
 </div>

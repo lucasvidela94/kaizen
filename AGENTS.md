@@ -31,6 +31,7 @@ Everything else has one home:
 - A new page takes its title and description from `pageMeta` in `src/data/site.ts` and renders inside `layouts/base-layout.astro`, which wires SEO, canonical and theme.
 - `src/pages/llms.txt.ts` is generated from `src/data/projects.ts`; update projects there only.
 - Private GitHub repos stay out of the site.
+- Visual language: paper and ink, one indigo accent (`portfolio-mark`), serif headings (Shippori Mincho) over sans body (Zen Kaku Gothic New), hairline-ruled rows instead of boxed cards, no decorative cultural motifs. Fonts load through the Fontsource provider in `astro.config.mjs`; the Google provider pulls hundreds of CJK slices.
 
 ## Tooling
 

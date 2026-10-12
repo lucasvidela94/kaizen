@@ -21,7 +21,7 @@ const { title, excerpt, publishedAt, readTime, category, tags, featured } = post
   data-search={[title, excerpt, category, ...tags].join(" ").toLowerCase()}
 >
   <a href={`/blog/${post.id}`} class="group block">
-    <Card class={featured ? "ring-2 ring-portfolio-accent/20" : ""}>
+    <Card class={featured ? "border-l-2 border-l-portfolio-mark" : ""}>
       <div class="mb-3 flex items-start justify-between gap-4">
         <PostMeta date={publishedAt} {readTime} {category} />
         {featured && <Badge class="text-xs">Featured</Badge>}

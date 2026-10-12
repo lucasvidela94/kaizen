@@ -1,6 +1,5 @@
 ---
 import PageSection from "../atoms/page-section.astro";
-import Card from "../atoms/card.astro";
 import ContactLinks from "../molecules/contact-links.astro";
 
 interface Props {
@@ -17,9 +16,9 @@ const {
 ---
 
 <PageSection>
-  <Card interactive={false} class="p-8 text-center">
-    <h2 class="mb-4 text-2xl font-bold text-portfolio-primary">{title}</h2>
-    <p class="mb-6 text-lg text-portfolio-secondary">{text}</p>
+  <div class="border-t border-portfolio-border pt-12">
+    <h2 class="mb-4 max-w-2xl text-3xl">{title}</h2>
+    <p class="mb-8 max-w-xl text-lg text-portfolio-secondary">{text}</p>
     <ContactLinks {separator} />
-  </Card>
+  </div>
 </PageSection>

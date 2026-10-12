@@ -3,32 +3,33 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Paper (light) and ink (dark). */
 :root {
-  --portfolio-bg: 0 0% 100%;
-  --portfolio-card: 0 0% 96%;
-  --portfolio-text-primary: 222 14% 4%;
-  --portfolio-text-secondary: 222 14% 20%;
-  --portfolio-text-muted: 222 14% 35%;
-  --portfolio-accent: 174 75% 26%;
-  --portfolio-accent-glow: 174 70% 34%;
-  --portfolio-border: 220 13% 85%;
-  --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 94%) 100%);
-  --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.2);
-  --shadow-card: 0 4px 16px hsl(222 14% 4% / 0.15);
+  --portfolio-bg: 75 9% 89%;
+  --portfolio-card: 75 9% 93%;
+  --portfolio-text-primary: 40 8% 11%;
+  --portfolio-text-secondary: 40 5% 26%;
+  --portfolio-text-muted: 40 4% 36%;
+  --portfolio-accent: 217 46% 31%;
+  --portfolio-accent-glow: 217 50% 42%;
+  --portfolio-mark: 217 46% 31%;
+  --portfolio-border: 75 6% 74%;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --mist: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(0 0% 100% / 0.55), transparent 70%);
 }
 
 .dark {
-  --portfolio-bg: 222 14% 8%;
-  --portfolio-card: 222 14% 10%;
-  --portfolio-text-primary: 210 20% 92%;
-  --portfolio-text-secondary: 215 16% 70%;
-  --portfolio-text-muted: 215 16% 60%;
-  --portfolio-accent: 174 55% 60%;
-  --portfolio-accent-glow: 174 55% 70%;
-  --portfolio-border: 220 13% 22%;
-  --gradient-hero: linear-gradient(135deg, hsl(222 14% 8%) 0%, hsl(220 13% 12%) 100%);
-  --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.15);
-  --shadow-card: 0 4px 12px hsl(222 14% 4% / 0.4);
+  --portfolio-bg: 220 8% 7%;
+  --portfolio-card: 220 7% 10%;
+  --portfolio-text-primary: 45 20% 90%;
+  --portfolio-text-secondary: 45 8% 68%;
+  --portfolio-text-muted: 45 6% 56%;
+  --portfolio-accent: 217 50% 72%;
+  --portfolio-accent-glow: 217 60% 82%;
+  --portfolio-mark: 217 50% 72%;
+  --portfolio-border: 220 6% 20%;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --mist: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(217 30% 30% / 0.25), transparent 70%);
 }
 
 @theme inline {
@@ -39,10 +40,10 @@
   --color-portfolio-muted: hsl(var(--portfolio-text-muted));
   --color-portfolio-accent: hsl(var(--portfolio-accent));
   --color-portfolio-accent-glow: hsl(var(--portfolio-accent-glow));
+  --color-portfolio-mark: hsl(var(--portfolio-mark));
   --color-portfolio-border: hsl(var(--portfolio-border));
-  --background-image-gradient-hero: var(--gradient-hero);
-  --shadow-glow: var(--shadow-glow);
-  --shadow-card: var(--shadow-card);
+  --font-display: var(--font-mincho), serif;
+  --font-sans: var(--font-gothic), sans-serif;
 }
 
 @layer base {
@@ -53,9 +54,9 @@
   }
 
   body {
-    background: var(--color-portfolio-bg);
     color: var(--color-portfolio-primary);
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
+    line-height: 1.7;
   }
 
   h1,
@@ -63,6 +64,58 @@
   h3,
   h4 {
     color: var(--color-portfolio-primary);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-portfolio-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* Paper: grain over a soft mist, fixed so the page scrolls over it. */
+.paper {
+  background-color: var(--color-portfolio-bg);
+  background-image: var(--grain), var(--mist);
+  background-attachment: fixed;
+}
+
+/* The one orchestrated moment: the name settles, then the disc fades in. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-settle {
+  animation: settle 0.7s ease-out both;
+}
+
+.animate-rise {
+  animation: rise 1.6s ease-out 0.3s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-settle,
+  .animate-rise {
+    animation: none;
   }
 }
 
@@ -71,10 +124,10 @@
   --tw-prose-headings: var(--color-portfolio-primary);
   --tw-prose-bold: var(--color-portfolio-primary);
   --tw-prose-links: var(--color-portfolio-accent);
-  --tw-prose-bullets: var(--color-portfolio-accent);
+  --tw-prose-bullets: var(--color-portfolio-mark);
   --tw-prose-counters: var(--color-portfolio-muted);
   --tw-prose-quotes: var(--color-portfolio-secondary);
-  --tw-prose-quote-borders: var(--color-portfolio-accent);
+  --tw-prose-quote-borders: var(--color-portfolio-mark);
   --tw-prose-code: var(--color-portfolio-primary);
   --tw-prose-pre-bg: var(--color-portfolio-card);
   --tw-prose-pre-code: var(--color-portfolio-primary);

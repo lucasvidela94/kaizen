@@ -1,5 +1,4 @@
 ---
-import Card from "../atoms/card.astro";
 import type { Project } from "../../data/projects";
 
 type Props = Project;
@@ -7,8 +6,9 @@ type Props = Project;
 const { title, description, tech, href, highlight = false } = Astro.props;
 ---
 
-<Card highlight={highlight}>
-  <h3 class="mb-3 text-lg font-semibold text-portfolio-primary">
+<article class="grid gap-3 border-t border-portfolio-border py-8 md:grid-cols-[1fr_1.6fr] md:gap-10">
+  <h3 class="flex items-baseline gap-3 text-lg">
+    {highlight && <span class="size-2 shrink-0 bg-portfolio-mark" aria-hidden="true"></span>}
     {
       href ? (
         <a href={href} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-portfolio-accent">
@@ -19,6 +19,8 @@ const { title, description, tech, href, highlight = false } = Astro.props;
       )
     }
   </h3>
-  <p class="mb-4 leading-relaxed text-portfolio-secondary">{description}</p>
-  <p class="font-mono text-sm text-portfolio-accent">Tech: {tech}</p>
-</Card>
+  <div>
+    <p class="leading-relaxed text-portfolio-secondary">{description}</p>
+    <p class="mt-3 text-sm text-portfolio-muted">{tech}</p>
+  </div>
+</article>

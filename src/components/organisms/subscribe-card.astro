@@ -4,17 +4,17 @@ import Card from "../atoms/card.astro";
 import { SITE_EMAIL } from "../../data/site";
 ---
 
-<PageSection width="6xl" class="pt-12">
+<PageSection class="pt-12">
   <Card interactive={false} class="mb-8 p-8">
     <h2 class="mb-4 text-2xl font-bold text-portfolio-primary">Progress Reports</h2>
     <p class="mb-4 text-portfolio-secondary">Short updates on what I'm working on</p>
-    <p class="font-mono text-sm text-portfolio-muted">
+    <p class="text-sm text-portfolio-muted">
       Periodic updates on projects, delivery notes, and lessons learned.
     </p>
   </Card>
   <Card interactive={false} class="border-portfolio-accent/30 p-8 text-center">
     <h2 class="mb-4 text-lg font-semibold text-portfolio-accent">Updates</h2>
     <p class="mb-6 text-portfolio-secondary">If you'd like to hear about new posts, send me an email.</p>
-    <a href={`mailto:${SITE_EMAIL}`} class="font-mono text-sm text-portfolio-muted">{SITE_EMAIL}</a>
+    <a href={`mailto:${SITE_EMAIL}`} class="text-sm text-portfolio-muted">{SITE_EMAIL}</a>
   </Card>
 </PageSection>
