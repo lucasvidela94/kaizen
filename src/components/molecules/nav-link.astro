@@ -12,7 +12,7 @@ const { href, label, current } = Astro.props;
   href={href}
   aria-current={current ? "page" : undefined}
   class:list={[
-    "rounded-full px-3 py-2 text-sm font-medium transition-all duration-300",
+    "rounded-full px-2.5 py-2 text-sm sm:px-3 font-medium transition-all duration-300",
     current
       ? "bg-portfolio-accent/10 text-portfolio-accent"
       : "text-portfolio-secondary hover:bg-portfolio-bg/50 hover:text-portfolio-primary",

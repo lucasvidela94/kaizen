@@ -9,8 +9,8 @@
   --portfolio-text-primary: 222 14% 4%;
   --portfolio-text-secondary: 222 14% 20%;
   --portfolio-text-muted: 222 14% 35%;
-  --portfolio-accent: 174 55% 60%;
-  --portfolio-accent-glow: 174 55% 70%;
+  --portfolio-accent: 174 75% 26%;
+  --portfolio-accent-glow: 174 70% 34%;
   --portfolio-border: 220 13% 85%;
   --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 94%) 100%);
   --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.2);
@@ -23,6 +23,8 @@
   --portfolio-text-primary: 210 20% 92%;
   --portfolio-text-secondary: 215 16% 70%;
   --portfolio-text-muted: 215 16% 60%;
+  --portfolio-accent: 174 55% 60%;
+  --portfolio-accent-glow: 174 55% 70%;
   --portfolio-border: 220 13% 22%;
   --gradient-hero: linear-gradient(135deg, hsl(222 14% 8%) 0%, hsl(220 13% 12%) 100%);
   --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.15);
