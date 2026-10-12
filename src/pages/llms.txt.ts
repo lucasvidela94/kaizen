@@ -11,7 +11,7 @@ const list = (projects: { title: string; description: string; href?: string }[])
 export const GET: APIRoute = () => {
   const body = `# Lucas Videla
 
-> Full-stack engineer from Comodoro Rivadavia, Argentina. Builds reliable web and mobile systems in Elixir, TypeScript, Go and Ruby on Rails, and open source tooling for AI agents. Currently at Magma Labs. Available for contract work and consulting.
+> Full-stack engineer from Patagonia, Argentina. Builds reliable web and mobile systems in Elixir, TypeScript, Go and Ruby on Rails, and open source tooling for AI agents. Currently at Magma Labs. Available for contract work and consulting.
 
 Contact: ${SITE_EMAIL}
 

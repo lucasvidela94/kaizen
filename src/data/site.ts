@@ -7,7 +7,7 @@ export const OG_IMAGE_PATH = "/og-image.png";
 
 export const pageMeta = {
   home: {
-    title: "Lucas Videla | Full-stack Engineer",
+    title: "Lucas Videla | All-purpose Developer",
     description:
       "Full-stack engineer building reliable web and mobile systems in Elixir, TypeScript and Go. Open source tools for AI agents. Available for contract work and consulting.",
   },
