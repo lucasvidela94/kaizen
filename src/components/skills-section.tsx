@@ -3,14 +3,15 @@ import { Badge } from "@/components/ui/badge";
 const SkillsSection = () => {
   const skills = {
     languages: [
-      "Bash", "C#", "CSS", "HTML", "Java", "JavaScript", 
-      "Markdown", "Python", "Rust", "Sass", "SQL", "TypeScript"
+      "TypeScript", "Go", "Elixir", "Ruby", "Python", "JavaScript", "Solidity", "C",
+      "Bash", "SQL", "CSS", "HTML", "Markdown", "Sass", "Java", "C#", "Rust"
     ],
     frameworks: [
-      "Apollo", "Bootstrap", "Bun", "ChakraUI", ".NET", "Electron",
-      "Express", "GitHub Actions", "GraphQL", "Hono", "Junit", "JWT",
-      "NestJS", "NextJS", "Passport", "React", "Socket.IO", "TailwindCSS",
-      "Tauri", "Unity", "Vite"
+      "Phoenix", "Rails", "Django", "React", "NextJS", "SolidJS", "Astro", "Vite",
+      "TailwindCSS", "Hono", "Fastify", "Express", "NestJS", "Electron", "Wails",
+      "Tauri", "Foundry", "wagmi", "MCP", "Playwright", "GitHub Actions", "JWT",
+      "GraphQL", "Apollo", "Bootstrap", "ChakraUI", "Socket.IO", "Passport",
+      "Bun", ".NET", "Junit", "Unity"
     ],
     tools: [
       "Apache", "Apache Maven", "Debian", "Docker", "Git", "Gradle",
@@ -18,9 +19,9 @@ const SkillsSection = () => {
       "Ubuntu", "Visual Studio Code"
     ],
     clouds: [
-      "Atlas", "AWS", "Cloudflare", "Cloudflare Workers", "GitHub",
-      "GitHub Pages", "MariaDB", "MongoDB", "MySQL", "OVH", "Railway",
-      "Redis", "Vercel"
+      "Cloudflare", "Cloudflare Workers", "Vercel", "Railway", "AWS", "OVH",
+      "PostgreSQL", "SQLite", "Redis", "MySQL", "MariaDB", "MongoDB", "Atlas",
+      "GitHub", "GitHub Pages"
     ],
     hardware: [
       "Arduino", "Bluetooth", "RaspberryPI"

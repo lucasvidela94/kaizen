@@ -11,6 +11,13 @@ Contact: lucasan.videla@gmail.com
 - [Blog](https://lucasvidela.com.ar/blog): notes on independent development, Elixir, solo teams and web performance
 - [Resume (PDF)](https://lucasvidela.com.ar/cv_lucasvidela.pdf)
 
+## Products
+
+- [Caduceus](https://github.com/lucasvidela94/caduceus): local-first desktop app for medical practice management
+- [Yoyaku](https://github.com/lucasvidela94/yoyaku): offline-first medical appointment scheduling (Go, Wails, React)
+- [Inverso](https://github.com/lucasvidela94/inverso): free investment comparison tool for Argentina (SolidJS)
+- [Elenchos](https://github.com/lucasvidela94/elenchos): blockchain-based municipal activity registry (Solidity, Polygon)
+
 ## Open source
 
 - [hush](https://github.com/lucasvidela94/hush): keeps API keys out of AI agent chats (Go)

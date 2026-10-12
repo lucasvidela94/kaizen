@@ -49,6 +49,13 @@ const About = () => {
               </p>
 
               <p>
+                Lately I focus on tooling for AI agents: MCP servers for Google Workspace, Jira and Google Places,
+                a vault that keeps API keys out of agent chats, and agent skills for explaining code and removing dead code.
+                I also build local-first products such as Caduceus (medical practice management) and Yoyaku (appointment scheduling).
+                Everything open source is on GitHub and listed on the portfolio page.
+              </p>
+
+              <p>
                 Recent work includes Latin Mundo (US finance backend), BeautyBarber (client platform), and AVAL System (mobile app + API, side work).
               </p>
               
@@ -105,6 +112,9 @@ const About = () => {
                     </span>
                     <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
                       Ruby on Rails
+                    </span>
+                    <span className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent text-sm rounded-full border border-portfolio-accent/20">
+                      Elixir
                     </span>
                   </div>
                 </div>
