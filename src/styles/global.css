@@ -10,7 +10,7 @@
   --portfolio-text-primary: 0 0% 8%;
   --portfolio-text-secondary: 0 0% 24%;
   --portfolio-text-muted: 0 0% 38%;
-  --portfolio-accent: 0 0% 0%;
+  --portfolio-accent: 205 45% 28%;
   --portfolio-border: 0 0% 74%;
 }
 
@@ -20,7 +20,7 @@
   --portfolio-text-primary: 60 6% 86%;
   --portfolio-text-secondary: 60 3% 66%;
   --portfolio-text-muted: 60 2% 52%;
-  --portfolio-accent: 60 10% 97%;
+  --portfolio-accent: 200 28% 72%;
   --portfolio-border: 0 0% 20%;
 }
 
@@ -46,14 +46,15 @@
   html {
     background: var(--color-portfolio-bg);
     -webkit-text-size-adjust: 100%;
+    scroll-padding-block: 4rem;
   }
 
   body {
     background: var(--color-portfolio-bg);
     color: var(--color-portfolio-primary);
     font-family: var(--font-mono);
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.65;
     padding-block: 2.75rem;
   }
 
@@ -78,22 +79,26 @@
   }
 }
 
-/* Halftone portrait: dots take the text color, the wrapper fades the edge. */
+/* Halftone portrait: a right-hand panel whose dots dissolve toward the text. */
 .halftone {
-  mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 55%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .halftone::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--color-portfolio-primary);
-  mask: url("/halftone.png") center / cover no-repeat;
-  opacity: 0.13;
+  background: var(--color-portfolio-accent);
+  mask: url("/halftone-light.png") 50% 62% / cover no-repeat;
+  opacity: 0.55;
 }
 
 .dark .halftone::before {
-  opacity: 0.32;
+  mask-image: url("/halftone.png");
+  opacity: 0.4;
 }
 
 @keyframes settle {
@@ -158,13 +163,42 @@
       color 0.15s;
   }
 
-  .row-link:hover {
+  .row-link:hover,
+  .row-link:focus-visible {
     background: var(--color-portfolio-primary);
     color: var(--color-portfolio-bg);
+    outline-offset: -2px;
   }
 
-  .row-link:hover * {
+  .row-link:hover *,
+  .row-link:focus-visible * {
     color: inherit;
     border-color: currentColor;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-portfolio-primary);
+  color: var(--color-portfolio-bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* On short screens (phones in landscape) fixed bars would eat the page. */
+@media (max-height: 480px) {
+  .chrome-bar {
+    position: static;
+  }
+
+  body {
+    padding-block: 0;
   }
 }

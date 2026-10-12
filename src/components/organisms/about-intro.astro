@@ -7,7 +7,7 @@ import { aboutHighlight, aboutIntro, aboutOutro } from "../../data/about";
 <PageSection class="pt-3 pb-16">
   <SectionLabel label="About" level="h1" />
   <div class="grid gap-8 py-8 md:grid-cols-[1fr_2fr] md:gap-12">
-    <p class="font-display text-[clamp(2.4rem,5vw,5rem)] leading-[0.9] uppercase">{aboutIntro[0]}</p>
+    <p class="font-display text-[clamp(2.4rem,5vw,5rem)] leading-[0.92]">{aboutIntro[0]}</p>
     <div class="max-w-3xl space-y-5 font-display text-[clamp(1.3rem,1.9vw,1.75rem)] leading-[1.25] text-portfolio-secondary">
       {aboutIntro.slice(1).map((paragraph) => <p>{paragraph}</p>)}
       <p class="border-l border-portfolio-primary pl-5 text-portfolio-primary">{aboutHighlight}</p>

@@ -27,14 +27,14 @@ const control =
   </div>
   <fieldset>
     <legend class="sr-only">Filter by tags</legend>
-    <div class="flex flex-wrap gap-1.5">
+    <div class="flex flex-wrap gap-2">
       {
         tags.map(({ name }) => (
           <button
             type="button"
             data-tag={name}
             aria-pressed="false"
-            class="border border-portfolio-border px-2 py-0.5 text-[11px] tracking-wider text-portfolio-secondary uppercase transition-colors hover:border-portfolio-primary aria-pressed:border-portfolio-primary aria-pressed:bg-portfolio-primary aria-pressed:text-portfolio-bg"
+            class="border border-portfolio-border px-2.5 py-1 text-xs tracking-wider text-portfolio-secondary uppercase transition-colors hover:border-portfolio-primary aria-pressed:border-portfolio-primary aria-pressed:bg-portfolio-primary aria-pressed:text-portfolio-bg"
           >
             {name}
           </button>

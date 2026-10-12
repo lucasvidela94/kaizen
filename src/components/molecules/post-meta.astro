@@ -11,5 +11,5 @@ const { date, readTime, category } = Astro.props;
 ---
 
 <p class="text-xs tracking-wider text-portfolio-muted uppercase">
-  <time datetime={date.toISOString()}>{formatDate(date)}</time> // {readTime} min // {category}
+  <time datetime={date.toISOString()}>{formatDate(date)}</time> / {readTime} min / {category}
 </p>

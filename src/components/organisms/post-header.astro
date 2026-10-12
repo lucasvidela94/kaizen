@@ -11,8 +11,8 @@ const { title, description, publishedAt, readTime, category, tags } = Astro.prop
 ---
 
 <header class="border-b border-portfolio-border pb-10">
-  <h1 class="text-[clamp(2.6rem,7.5vw,7.5rem)] leading-[0.88] uppercase">{title}</h1>
-  <p class="mt-8 max-w-xl text-xs leading-relaxed text-portfolio-secondary">{description}</p>
+  <h1 class="text-[clamp(2.6rem,7.5vw,7.5rem)] leading-[0.9]">{title}</h1>
+  <p class="mt-8 max-w-xl text-sm leading-relaxed text-portfolio-secondary">{description}</p>
   <div class="mt-6 space-y-4">
     <PostMeta date={publishedAt} {readTime} {category} />
     {tags.length > 0 && <TagList {tags} />}

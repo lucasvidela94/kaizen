@@ -1,4 +1,5 @@
 ---
+import LocalTime from "../molecules/local-time.astro";
 import NavLink from "../molecules/nav-link.astro";
 import ThemeToggle from "../molecules/theme-toggle.astro";
 import { navItems } from "../../data/nav";
@@ -7,22 +8,18 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isCurrent = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-portfolio-border bg-portfolio-bg">
+<header class="chrome-bar fixed inset-x-0 top-0 z-50 border-b border-portfolio-border bg-portfolio-bg">
   <div class="flex h-11 items-center justify-between px-3 text-xs tracking-wider uppercase">
-    <a href="/" class="flex gap-2" aria-label="Lucas Videla, home">
-      <span class="font-medium">LV</span>
-      <span class="hidden text-portfolio-muted sm:inline">// Full-stack engineer</span>
+    <a href="/" class="flex h-11 items-center gap-3" aria-label="Lucas Videla, home">
+      <span class="font-medium">Lucas Videla</span>
+      <span class="hidden items-center gap-3 text-portfolio-muted md:flex">
+        <span aria-hidden="true">/</span>
+        Comodoro Rivadavia
+        <LocalTime />
+      </span>
     </a>
-    <nav aria-label="Main" class="flex items-center gap-2 sm:gap-3">
-      {
-        navItems.map((item, index) => (
-          <>
-            {index > 0 && <span class="text-portfolio-muted" aria-hidden="true">//</span>}
-            <NavLink {...item} current={isCurrent(item.href)} />
-          </>
-        ))
-      }
-      <span class="text-portfolio-muted" aria-hidden="true">//</span>
+    <nav aria-label="Main" class="flex items-center gap-1 sm:gap-2">
+      {navItems.map((item) => <NavLink {...item} current={isCurrent(item.href)} />)}
       <ThemeToggle />
     </nav>
   </div>

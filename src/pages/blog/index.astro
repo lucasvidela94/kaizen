@@ -14,7 +14,7 @@ const posts = await getPublishedPosts();
 <BaseLayout {...pageMeta.blog}>
   <PageSection class="mb-24 pt-3">
     <SectionLabel label="Blog" count={posts.length} level="h1" />
-    <p class="max-w-4xl py-8 font-display text-[clamp(2rem,5vw,4.5rem)] leading-[0.92] uppercase">
+    <p class="max-w-4xl py-8 font-display text-[clamp(2rem,5vw,4.5rem)] leading-[0.95]">
       {pageMeta.blog.description}
     </p>
     <BlogFilters categories={getCategories(posts)} tags={getTags(posts)} />

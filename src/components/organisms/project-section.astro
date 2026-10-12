@@ -8,12 +8,13 @@ interface Props {
   title: string;
   description?: string;
   projects: Project[];
+  id?: string;
 }
 
-const { title, description, projects } = Astro.props;
+const { title, description, projects, id } = Astro.props;
 ---
 
-<PageSection class="mb-24">
+<PageSection class="mb-24" id={id}>
   <SectionLabel label={title} count={projects.length} />
   {description && <p class="max-w-xl py-4 text-xs leading-relaxed text-portfolio-secondary">{description}</p>}
   <ul>

@@ -10,7 +10,7 @@ const { tags, limit = tags.length } = Astro.props;
 const hidden = tags.length - limit;
 ---
 
-<ul class="flex flex-wrap gap-1.5">
+<ul class="flex flex-wrap gap-2">
   {tags.slice(0, limit).map((tag) => <li><Chip>{tag}</Chip></li>)}
   {hidden > 0 && <li><Chip>+{hidden}</Chip></li>}
 </ul>

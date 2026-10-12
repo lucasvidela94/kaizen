@@ -33,6 +33,7 @@ const personSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content={SITE_NAME} />
+    <meta name="color-scheme" content="dark light" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <Font cssVariable="--astro-font-display" preload />
@@ -48,8 +49,9 @@ const personSchema = {
     </script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <SiteHeader />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <SiteFooter />

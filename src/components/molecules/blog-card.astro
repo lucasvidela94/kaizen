@@ -23,8 +23,8 @@ const { title, excerpt, publishedAt, readTime, category, tags } = post.data;
   >
     <PostMeta date={publishedAt} {readTime} {category} />
     <div>
-      <h3 class="text-[clamp(1.7rem,3.2vw,2.9rem)] uppercase">{title}</h3>
-      <p class="mt-3 max-w-xl text-xs leading-relaxed text-portfolio-secondary">{excerpt}</p>
+      <h3 class="text-[clamp(1.8rem,3.4vw,3rem)]">{title}</h3>
+      <p class="mt-3 max-w-xl text-sm leading-relaxed text-portfolio-secondary">{excerpt}</p>
     </div>
     <TagList tags={tags} limit={3} />
   </a>
