@@ -38,6 +38,23 @@ const website = {
 
 export const homeSchema = { "@context": "https://schema.org", "@graph": [person, website] };
 
+export const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/about#profile`,
+      url: `${SITE_URL}/about`,
+      name: `About ${SITE_NAME}`,
+      inLanguage: "en",
+      mainEntity: { "@id": personId },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+    person,
+    website,
+  ],
+};
+
 export const postSchema = (post: Post) => {
   const url = `${SITE_URL}/blog/${post.id}`;
   const { title, excerpt, publishedAt, updatedAt, tags, category } = post.data;

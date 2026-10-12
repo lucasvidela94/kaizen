@@ -5,9 +5,10 @@ import CompaniesSection from "../components/organisms/companies-section.astro";
 import ContactSection from "../components/organisms/contact-section.astro";
 import ResumeRow from "../components/organisms/resume-row.astro";
 import { pageMeta } from "../data/site";
+import { aboutSchema } from "../lib/schema";
 ---
 
-<BaseLayout {...pageMeta.about}>
+<BaseLayout {...pageMeta.about} schema={aboutSchema}>
   <AboutIntro />
   <CompaniesSection />
   <ResumeRow />
