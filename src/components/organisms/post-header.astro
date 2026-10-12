@@ -7,12 +7,14 @@ interface Props {
   post: Post;
 }
 
-const { title, description, author, publishedAt, readTime, category, tags } = Astro.props.post.data;
+const { title, description, publishedAt, readTime, category, tags } = Astro.props.post.data;
 ---
 
-<header class="mb-8 border-b border-portfolio-border pb-8">
-  <h1 class="mb-4 text-4xl font-bold text-portfolio-primary">{title}</h1>
-  <p class="mb-6 text-xl text-portfolio-secondary">{description}</p>
-  <PostMeta {author} date={publishedAt} {readTime} {category} />
-  {tags.length > 0 && <div class="mt-4"><TagList {tags} /></div>}
+<header class="border-b border-portfolio-border pb-10">
+  <h1 class="text-[clamp(2.6rem,7.5vw,7.5rem)] leading-[0.88] uppercase">{title}</h1>
+  <p class="mt-8 max-w-xl text-xs leading-relaxed text-portfolio-secondary">{description}</p>
+  <div class="mt-6 space-y-4">
+    <PostMeta date={publishedAt} {readTime} {category} />
+    {tags.length > 0 && <TagList {tags} />}
+  </div>
 </header>

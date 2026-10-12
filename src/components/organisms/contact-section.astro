@@ -1,24 +1,29 @@
 ---
 import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
 import ContactLinks from "../molecules/contact-links.astro";
+import { SITE_EMAIL } from "../../data/site";
 
 interface Props {
   title?: string;
   text?: string;
-  separator?: string;
 }
 
 const {
   title = "Available for contract work and consulting.",
   text = "If you need someone who can take ownership and ship, reach out.",
-  separator,
 } = Astro.props;
 ---
 
-<PageSection>
-  <div class="border-t border-portfolio-border pt-12">
-    <h2 class="mb-4 max-w-2xl text-3xl">{title}</h2>
-    <p class="mb-8 max-w-xl text-lg text-portfolio-secondary">{text}</p>
-    <ContactLinks {separator} />
-  </div>
+<PageSection class="mb-24">
+  <SectionLabel label="Contact" />
+  <p class="max-w-5xl py-8 font-display text-[clamp(2.2rem,6vw,6rem)] leading-[0.9] uppercase">{title}</p>
+  <a
+    href={`mailto:${SITE_EMAIL}`}
+    class="font-display text-[clamp(1.5rem,4vw,3.5rem)] underline decoration-1 underline-offset-8 transition-opacity hover:opacity-60"
+  >
+    {SITE_EMAIL}
+  </a>
+  <p class="mt-6 max-w-md text-xs leading-relaxed text-portfolio-secondary">{text}</p>
+  <ContactLinks />
 </PageSection>

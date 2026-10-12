@@ -1,6 +1,6 @@
 ---
 import PageSection from "../atoms/page-section.astro";
-import SectionTitle from "../atoms/section-title.astro";
+import SectionLabel from "../atoms/section-label.astro";
 import ProjectCard from "../molecules/project-card.astro";
 import type { Project } from "../../data/projects";
 
@@ -13,19 +13,10 @@ interface Props {
 const { title, description, projects } = Astro.props;
 ---
 
-<PageSection>
-  <div class="grid gap-8 md:grid-cols-[13rem_1fr] md:gap-12">
-    <div class="md:sticky md:top-8 md:self-start">
-      <SectionTitle title={title} description={description} />
-    </div>
-    <ul class="border-b border-portfolio-border">
-      {
-        projects.map((project) => (
-          <li>
-            <ProjectCard {...project} />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+<PageSection class="mb-24">
+  <SectionLabel label={title} count={projects.length} />
+  {description && <p class="max-w-xl py-4 text-xs leading-relaxed text-portfolio-secondary">{description}</p>}
+  <ul>
+    {projects.map((project) => <li><ProjectCard {...project} /></li>)}
+  </ul>
 </PageSection>

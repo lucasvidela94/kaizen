@@ -1,0 +1,16 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+---
+
+<PageSection class="mb-16">
+  <SectionLabel label="Resume" />
+  <a
+    href="/cv_lucasvidela.pdf"
+    download
+    class="row-link flex items-baseline justify-between gap-6 border-b border-portfolio-border py-6"
+  >
+    <span class="font-display text-[clamp(2rem,5vw,4.5rem)] uppercase">Download CV</span>
+    <span class="text-xs tracking-wider text-portfolio-muted uppercase">PDF</span>
+  </a>
+</PageSection>

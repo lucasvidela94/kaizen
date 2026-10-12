@@ -1,19 +1,17 @@
 ---
 import BaseLayout from "../layouts/base-layout.astro";
 import PageSection from "../components/atoms/page-section.astro";
+import SectionLabel from "../components/atoms/section-label.astro";
 import { pageMeta } from "../data/site";
 ---
 
 <BaseLayout {...pageMeta.notFound} noindex>
-  <PageSection width="3xl" class="pt-32 text-center">
-    <h1 class="mb-4 text-9xl font-bold text-portfolio-primary">404</h1>
-    <h2 class="mb-6 text-2xl font-semibold text-portfolio-primary">Page not found</h2>
-    <p class="mb-8 text-portfolio-secondary">The page you're looking for doesn't exist or has been moved.</p>
-    <a
-      href="/"
-      class="inline-block rounded-sm border border-portfolio-accent/40 px-6 py-3 text-sm text-portfolio-accent transition-all hover:bg-portfolio-accent/10"
-    >
-      Go Home
-    </a>
+  <PageSection class="pt-3 pb-24">
+    <SectionLabel label="Not found" level="h1" />
+    <p class="py-8 font-display text-[clamp(6rem,24vw,22rem)] leading-[0.8]">404</p>
+    <p class="max-w-md text-xs leading-relaxed text-portfolio-secondary">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <a href="/" class="mt-6 inline-block text-xs tracking-wider uppercase underline underline-offset-4">Back to work</a>
   </PageSection>
 </BaseLayout>

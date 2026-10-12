@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 import "../styles/global.css";
 import SeoHead from "../components/molecules/seo-head.astro";
+import SiteFooter from "../components/organisms/site-footer.astro";
 import SiteHeader from "../components/organisms/site-header.astro";
 import { SITE_EMAIL, SITE_NAME, SITE_URL, GITHUB_URL } from "../data/site";
 
@@ -34,22 +35,23 @@ const personSchema = {
     <meta name="author" content={SITE_NAME} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <Font cssVariable="--font-mincho" preload />
-    <Font cssVariable="--font-gothic" preload />
+    <Font cssVariable="--astro-font-display" preload />
+    <Font cssVariable="--astro-font-mono" preload />
     <SeoHead {title} {description} {type} {noindex} />
     {person && <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
     <script is:inline>
       try {
         const saved = localStorage.getItem("theme");
-        const dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        const dark = saved ? saved === "dark" : true;
         document.documentElement.classList.toggle("dark", dark);
       } catch {}
     </script>
   </head>
-  <body class="paper min-h-screen">
+  <body>
     <SiteHeader />
     <main>
       <slot />
     </main>
+    <SiteFooter />
   </body>
 </html>

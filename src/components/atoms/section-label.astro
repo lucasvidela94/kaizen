@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  count?: number;
+  level?: "h1" | "h2";
+}
+
+const { label, count, level: Heading = "h2" } = Astro.props;
+---
+
+<div class="flex items-baseline justify-between border-b border-portfolio-border pb-2 text-xs tracking-wider text-portfolio-muted uppercase">
+  <Heading class="font-mono text-xs leading-normal tracking-wider">// {label}</Heading>
+  {count !== undefined && <span>{String(count).padStart(2, "0")}</span>}
+</div>

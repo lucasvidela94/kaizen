@@ -1,5 +1,7 @@
 ---
-import CompanyCard from "../molecules/company-card.astro";
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+import CompanyRow from "../molecules/company-row.astro";
 import magmaLabs from "../../assets/logos/magma-labs.svg";
 import suci from "../../assets/logos/suci.jpg";
 import { companies } from "../../data/about";
@@ -7,11 +9,7 @@ import { companies } from "../../data/about";
 const logos = { "magma-labs": magmaLabs, suci };
 ---
 
-{
-  companies.map(({ heading, logo, ...company }) => (
-    <section class="mt-16">
-      <h2 class="mb-8 text-2xl font-bold text-portfolio-primary">{heading}</h2>
-      <CompanyCard {...company} logo={logos[logo]} />
-    </section>
-  ))
-}
+<PageSection class="mb-16">
+  <SectionLabel label="Work" count={companies.length} />
+  {companies.map(({ logo, ...company }) => <CompanyRow {...company} logo={logos[logo]} />)}
+</PageSection>

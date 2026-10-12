@@ -3,33 +3,25 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Paper (light) and ink (dark). */
+/* Light is the inverse of dark; dark is the default. */
 :root {
-  --portfolio-bg: 75 9% 89%;
-  --portfolio-card: 75 9% 93%;
-  --portfolio-text-primary: 40 8% 11%;
-  --portfolio-text-secondary: 40 5% 26%;
-  --portfolio-text-muted: 40 4% 36%;
-  --portfolio-accent: 217 46% 31%;
-  --portfolio-accent-glow: 217 50% 42%;
-  --portfolio-mark: 217 46% 31%;
-  --portfolio-border: 75 6% 74%;
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --mist: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(0 0% 100% / 0.55), transparent 70%);
+  --portfolio-bg: 60 8% 91%;
+  --portfolio-card: 60 6% 87%;
+  --portfolio-text-primary: 0 0% 8%;
+  --portfolio-text-secondary: 0 0% 24%;
+  --portfolio-text-muted: 0 0% 38%;
+  --portfolio-accent: 0 0% 0%;
+  --portfolio-border: 0 0% 74%;
 }
 
 .dark {
-  --portfolio-bg: 220 8% 7%;
-  --portfolio-card: 220 7% 10%;
-  --portfolio-text-primary: 45 20% 90%;
-  --portfolio-text-secondary: 45 8% 68%;
-  --portfolio-text-muted: 45 6% 56%;
-  --portfolio-accent: 217 50% 72%;
-  --portfolio-accent-glow: 217 60% 82%;
-  --portfolio-mark: 217 50% 72%;
-  --portfolio-border: 220 6% 20%;
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --mist: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(217 30% 30% / 0.25), transparent 70%);
+  --portfolio-bg: 0 0% 8.5%;
+  --portfolio-card: 0 0% 11%;
+  --portfolio-text-primary: 60 6% 86%;
+  --portfolio-text-secondary: 60 3% 66%;
+  --portfolio-text-muted: 60 2% 52%;
+  --portfolio-accent: 60 10% 97%;
+  --portfolio-border: 0 0% 20%;
 }
 
 @theme inline {
@@ -39,11 +31,9 @@
   --color-portfolio-secondary: hsl(var(--portfolio-text-secondary));
   --color-portfolio-muted: hsl(var(--portfolio-text-muted));
   --color-portfolio-accent: hsl(var(--portfolio-accent));
-  --color-portfolio-accent-glow: hsl(var(--portfolio-accent-glow));
-  --color-portfolio-mark: hsl(var(--portfolio-mark));
   --color-portfolio-border: hsl(var(--portfolio-border));
-  --font-display: var(--font-mincho), serif;
-  --font-sans: var(--font-gothic), sans-serif;
+  --font-display: var(--astro-font-display), serif;
+  --font-mono: var(--astro-font-mono), monospace;
 }
 
 @layer base {
@@ -53,41 +43,63 @@
     border-color: var(--color-portfolio-border);
   }
 
+  html {
+    background: var(--color-portfolio-bg);
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
+    background: var(--color-portfolio-bg);
     color: var(--color-portfolio-primary);
-    font-family: var(--font-sans);
-    line-height: 1.7;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding-block: 2.75rem;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    color: var(--color-portfolio-primary);
     font-family: var(--font-display);
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.01em;
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-portfolio-primary);
+    color: var(--color-portfolio-bg);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-portfolio-accent);
+    outline: 1px solid var(--color-portfolio-primary);
     outline-offset: 3px;
   }
 }
 
-/* Paper: grain over a soft mist, fixed so the page scrolls over it. */
-.paper {
-  background-color: var(--color-portfolio-bg);
-  background-image: var(--grain), var(--mist);
-  background-attachment: fixed;
+/* Halftone portrait: dots take the text color, the wrapper fades the edge. */
+.halftone {
+  mask-image: radial-gradient(closest-side, #000 35%, transparent 100%);
 }
 
-/* The one orchestrated moment: the name settles, then the disc fades in. */
+.halftone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-portfolio-primary);
+  mask: url("/halftone.png") center / cover no-repeat;
+  opacity: 0.13;
+}
+
+.dark .halftone::before {
+  opacity: 0.32;
+}
+
 @keyframes settle {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translateY(0.75rem);
   }
   to {
     opacity: 1;
@@ -105,11 +117,11 @@
 }
 
 .animate-settle {
-  animation: settle 0.7s ease-out both;
+  animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 .animate-rise {
-  animation: rise 1.6s ease-out 0.3s both;
+  animation: rise 2.2s ease-out 0.2s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -123,15 +135,36 @@
   --tw-prose-body: var(--color-portfolio-secondary);
   --tw-prose-headings: var(--color-portfolio-primary);
   --tw-prose-bold: var(--color-portfolio-primary);
-  --tw-prose-links: var(--color-portfolio-accent);
-  --tw-prose-bullets: var(--color-portfolio-mark);
+  --tw-prose-links: var(--color-portfolio-primary);
+  --tw-prose-bullets: var(--color-portfolio-muted);
   --tw-prose-counters: var(--color-portfolio-muted);
   --tw-prose-quotes: var(--color-portfolio-secondary);
-  --tw-prose-quote-borders: var(--color-portfolio-mark);
+  --tw-prose-quote-borders: var(--color-portfolio-primary);
   --tw-prose-code: var(--color-portfolio-primary);
   --tw-prose-pre-bg: var(--color-portfolio-card);
   --tw-prose-pre-code: var(--color-portfolio-primary);
   --tw-prose-hr: var(--color-portfolio-border);
   --tw-prose-th-borders: var(--color-portfolio-border);
   --tw-prose-td-borders: var(--color-portfolio-border);
+}
+
+/* Full-bleed list rows that invert on hover. */
+@layer components {
+  .row-link {
+    margin-inline: -0.75rem;
+    padding-inline: 0.75rem;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+
+  .row-link:hover {
+    background: var(--color-portfolio-primary);
+    color: var(--color-portfolio-bg);
+  }
+
+  .row-link:hover * {
+    color: inherit;
+    border-color: currentColor;
+  }
 }

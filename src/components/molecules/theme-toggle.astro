@@ -1,15 +1,14 @@
 ---
-import Icon from "../atoms/icon.astro";
 ---
 
 <button
   type="button"
   data-theme-toggle
   aria-label="Toggle color theme"
-  class="rounded-full p-2 text-portfolio-secondary transition-all duration-300 hover:bg-portfolio-bg/50 hover:text-portfolio-primary"
+  class="text-portfolio-muted uppercase transition-colors hover:text-portfolio-primary"
 >
-  <Icon name="sun" class="hidden size-4 dark:block" />
-  <Icon name="moon" class="block size-4 dark:hidden" />
+  <span class="hidden dark:inline">Light</span>
+  <span class="dark:hidden">Dark</span>
 </button>
 
 <script>

@@ -7,14 +7,22 @@ const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isCurrent = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 px-6 py-6">
-  <div class="mx-auto flex max-w-5xl items-center justify-between">
-    <a href="/" class="font-display text-lg font-bold" aria-label="Lucas Videla, home">
-      <span class="sm:hidden">LV</span>
-      <span class="hidden sm:inline">Lucas Videla</span>
+<header class="fixed inset-x-0 top-0 z-50 border-b border-portfolio-border bg-portfolio-bg">
+  <div class="flex h-11 items-center justify-between px-3 text-xs tracking-wider uppercase">
+    <a href="/" class="flex gap-2" aria-label="Lucas Videla, home">
+      <span class="font-medium">LV</span>
+      <span class="hidden text-portfolio-muted sm:inline">// Full-stack engineer</span>
     </a>
-    <nav aria-label="Main" class="flex items-center gap-1 sm:gap-4">
-      {navItems.map((item) => <NavLink {...item} current={isCurrent(item.href)} />)}
+    <nav aria-label="Main" class="flex items-center gap-2 sm:gap-3">
+      {
+        navItems.map((item, index) => (
+          <>
+            {index > 0 && <span class="text-portfolio-muted" aria-hidden="true">//</span>}
+            <NavLink {...item} current={isCurrent(item.href)} />
+          </>
+        ))
+      }
+      <span class="text-portfolio-muted" aria-hidden="true">//</span>
       <ThemeToggle />
     </nav>
   </div>

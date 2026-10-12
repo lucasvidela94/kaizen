@@ -1,29 +1,15 @@
 ---
-import Icon from "../atoms/icon.astro";
 import { formatDate } from "../../lib/format-date";
 
 interface Props {
-  author?: string;
   date: Date;
   readTime: number;
   category: string;
 }
 
-const { author, date, readTime, category } = Astro.props;
+const { date, readTime, category } = Astro.props;
 ---
 
-<ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-portfolio-muted">
-  {
-    author && (
-      <li class="flex items-center gap-2">
-        <Icon name="user" /> {author}
-      </li>
-    )
-  }
-  <li class="flex items-center gap-2">
-    <Icon name="calendar" />
-    <time datetime={date.toISOString()}>{formatDate(date)}</time>
-  </li>
-  <li class="flex items-center gap-2"><Icon name="clock" /> {readTime} min read</li>
-  <li class="flex items-center gap-2"><Icon name="tag" /> {category}</li>
-</ul>
+<p class="text-xs tracking-wider text-portfolio-muted uppercase">
+  <time datetime={date.toISOString()}>{formatDate(date)}</time> // {readTime} min // {category}
+</p>

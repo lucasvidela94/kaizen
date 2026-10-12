@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/base-layout.astro";
+import ContactSection from "../components/organisms/contact-section.astro";
 import Hero from "../components/organisms/hero.astro";
 import ProjectSection from "../components/organisms/project-section.astro";
 import SkillsSection from "../components/organisms/skills-section.astro";
-import ContactSection from "../components/organisms/contact-section.astro";
 import { openSource, products, professionalWork, selectedBuilds } from "../data/projects";
 import { pageMeta } from "../data/site";
 ---
@@ -23,5 +23,5 @@ import { pageMeta } from "../data/site";
     projects={openSource}
   />
   <SkillsSection />
-  <ContactSection separator="or" />
+  <ContactSection />
 </BaseLayout>

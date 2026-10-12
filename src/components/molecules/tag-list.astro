@@ -1,5 +1,5 @@
 ---
-import Badge from "../atoms/badge.astro";
+import Chip from "../atoms/chip.astro";
 
 interface Props {
   tags: string[];
@@ -10,23 +10,7 @@ const { tags, limit = tags.length } = Astro.props;
 const hidden = tags.length - limit;
 ---
 
-<ul class="flex flex-wrap gap-2">
-  {
-    tags.slice(0, limit).map((tag) => (
-      <li>
-        <Badge variant="outline" class="px-2 py-0.5 text-xs">
-          {tag}
-        </Badge>
-      </li>
-    ))
-  }
-  {
-    hidden > 0 && (
-      <li>
-        <Badge variant="outline" class="px-2 py-0.5 text-xs">
-          +{hidden}
-        </Badge>
-      </li>
-    )
-  }
+<ul class="flex flex-wrap gap-1.5">
+  {tags.slice(0, limit).map((tag) => <li><Chip>{tag}</Chip></li>)}
+  {hidden > 0 && <li><Chip>+{hidden}</Chip></li>}
 </ul>

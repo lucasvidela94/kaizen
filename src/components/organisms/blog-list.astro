@@ -7,25 +7,14 @@ interface Props {
 }
 
 const { posts } = Astro.props;
-const featured = posts.filter((post) => post.data.featured);
 ---
 
-<p class="mb-6 text-portfolio-secondary" data-count aria-live="polite">{posts.length} posts found</p>
-
-{
-  featured.length > 0 && (
-    <div data-featured-block class="mb-12">
-      <h2 class="mb-6 text-xl font-semibold text-portfolio-primary">Featured Posts</h2>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {featured.map((post) => <BlogCard {post} />)}
-      </div>
-    </div>
-  )
-}
-
-<h2 class="mb-6 text-2xl font-bold text-portfolio-primary">All Posts</h2>
-<div class="space-y-6">
+<p class="pb-3 text-xs tracking-wider text-portfolio-muted uppercase" data-count aria-live="polite">
+  {posts.length} posts found
+</p>
+<div class="border-t border-portfolio-border">
   {posts.map((post) => <BlogCard {post} />)}
 </div>
-
-<p data-empty hidden class="py-12 text-center text-portfolio-muted">No posts found matching your criteria.</p>
+<p data-empty hidden class="py-12 text-xs tracking-wider text-portfolio-muted uppercase">
+  No posts match these filters.
+</p>
