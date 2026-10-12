@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#e4e5df"/>
-  <circle cx="930" cy="150" r="270" fill="#2c4a78" fill-opacity="0.1"/>
-  <text x="90" y="340" font-family="Noto Serif CJK JP, serif" font-weight="700" font-size="120" fill="#1d1c1a">Lucas Videla</text>
-  <text x="94" y="415" font-family="Noto Sans, sans-serif" font-size="38" fill="#45423e">Full-stack engineer focused on reliable delivery</text>
-  <rect x="94" y="520" width="56" height="3" fill="#2c4a78"/>
-  <text x="94" y="565" font-family="Noto Sans, sans-serif" font-size="28" fill="#625f5a">lucasvidela.com.ar</text>
-</svg>
