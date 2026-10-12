@@ -1,0 +1,4 @@
+{
+  "*.{js,mjs,ts,json,css,md}": "oxfmt --no-error-on-unmatched-pattern",
+  "*.{js,mjs,ts,astro}": "oxlint"
+}

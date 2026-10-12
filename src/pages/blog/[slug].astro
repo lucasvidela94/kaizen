@@ -1,0 +1,35 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
+import PageSection from "../../components/atoms/page-section.astro";
+import Icon from "../../components/atoms/icon.astro";
+import PostHeader from "../../components/organisms/post-header.astro";
+import RelatedPosts from "../../components/organisms/related-posts.astro";
+import { getPublishedPosts, getRelatedPosts } from "../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post, related: getRelatedPosts(posts, post) },
+  }));
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Lucas Videla`} description={post.data.excerpt} type="article">
+  <PageSection class="pt-32">
+    <a href="/blog" class="mb-8 inline-flex items-center gap-2 text-portfolio-accent transition-colors hover:text-portfolio-primary">
+      <Icon name="arrow-left" /> Back to Blog
+    </a>
+    <article class="mb-12">
+      <PostHeader {post} />
+      <div class="prose prose-portfolio max-w-none dark:prose-invert">
+        <Content />
+      </div>
+    </article>
+    <RelatedPosts posts={related} />
+  </PageSection>
+</BaseLayout>

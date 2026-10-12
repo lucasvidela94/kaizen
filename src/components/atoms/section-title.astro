@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  level?: "h1" | "h2";
+}
+
+const { title, description, level: Heading = "h2" } = Astro.props;
+---
+
+<div class="mb-12">
+  <Heading class="text-3xl font-bold text-portfolio-primary">{title}</Heading>
+  {description && <p class="mt-4 text-portfolio-secondary">{description}</p>}
+</div>

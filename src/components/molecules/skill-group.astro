@@ -1,0 +1,22 @@
+---
+import Card from "../atoms/card.astro";
+import Badge from "../atoms/badge.astro";
+import type { SkillGroup } from "../../data/skills";
+
+type Props = SkillGroup;
+
+const { title, items } = Astro.props;
+---
+
+<Card interactive={false} class="p-8">
+  <h3 class="mb-6 text-xl font-semibold text-portfolio-primary">{title}</h3>
+  <ul class="flex flex-wrap gap-3">
+    {
+      items.map((item) => (
+        <li>
+          <Badge>{item}</Badge>
+        </li>
+      ))
+    }
+  </ul>
+</Card>

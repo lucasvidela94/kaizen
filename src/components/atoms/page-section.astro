@@ -1,0 +1,16 @@
+---
+interface Props {
+  width?: "3xl" | "4xl" | "6xl";
+  class?: string;
+}
+
+const { width = "4xl", class: className } = Astro.props;
+
+const widths = { "3xl": "max-w-3xl", "4xl": "max-w-4xl", "6xl": "max-w-6xl" };
+---
+
+<section class:list={["px-6 pb-20", className]}>
+  <div class:list={["mx-auto", widths[width]]}>
+    <slot />
+  </div>
+</section>

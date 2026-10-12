@@ -1,0 +1,27 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionTitle from "../atoms/section-title.astro";
+import ProjectCard from "../molecules/project-card.astro";
+import type { Project } from "../../data/projects";
+
+interface Props {
+  title: string;
+  description?: string;
+  projects: Project[];
+}
+
+const { title, description, projects } = Astro.props;
+---
+
+<PageSection>
+  <SectionTitle title={title} description={description} />
+  <ul class="grid gap-8">
+    {
+      projects.map((project) => (
+        <li>
+          <ProjectCard {...project} />
+        </li>
+      ))
+    }
+  </ul>
+</PageSection>

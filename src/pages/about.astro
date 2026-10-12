@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/base-layout.astro";
+import PageSection from "../components/atoms/page-section.astro";
+import AboutBio from "../components/organisms/about-bio.astro";
+import CompaniesSection from "../components/organisms/companies-section.astro";
+import ResumeCard from "../components/organisms/resume-card.astro";
+import ContactSection from "../components/organisms/contact-section.astro";
+import { pageMeta } from "../data/site";
+---
+
+<BaseLayout {...pageMeta.about}>
+  <PageSection width="3xl" class="pt-32">
+    <h1 class="mb-12 text-4xl font-bold text-portfolio-primary">About Me</h1>
+    <AboutBio />
+    <CompaniesSection />
+    <ResumeCard />
+  </PageSection>
+  <ContactSection title="Contact" text="Reach out by email or find the code on GitHub." />
+</BaseLayout>

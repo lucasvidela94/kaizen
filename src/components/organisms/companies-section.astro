@@ -1,0 +1,17 @@
+---
+import CompanyCard from "../molecules/company-card.astro";
+import magmaLabs from "../../assets/logos/magma-labs.svg";
+import suci from "../../assets/logos/suci.jpg";
+import { companies } from "../../data/about";
+
+const logos = { "magma-labs": magmaLabs, suci };
+---
+
+{
+  companies.map(({ heading, logo, ...company }) => (
+    <section class="mt-16">
+      <h2 class="mb-8 text-2xl font-bold text-portfolio-primary">{heading}</h2>
+      <CompanyCard {...company} logo={logos[logo]} />
+    </section>
+  ))
+}

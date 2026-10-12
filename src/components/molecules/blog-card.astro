@@ -1,0 +1,36 @@
+---
+import Card from "../atoms/card.astro";
+import Badge from "../atoms/badge.astro";
+import PostMeta from "./post-meta.astro";
+import TagList from "./tag-list.astro";
+import type { Post } from "../../lib/posts";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { title, excerpt, publishedAt, readTime, category, tags, featured } = post.data;
+---
+
+<article
+  data-blog-card
+  data-featured={featured}
+  data-category={category.toLowerCase().replace(/\s+/g, "-")}
+  data-tags={tags.join(",")}
+  data-search={[title, excerpt, category, ...tags].join(" ").toLowerCase()}
+>
+  <a href={`/blog/${post.id}`} class="group block">
+    <Card class={featured ? "ring-2 ring-portfolio-accent/20" : ""}>
+      <div class="mb-3 flex items-start justify-between gap-4">
+        <PostMeta date={publishedAt} {readTime} {category} />
+        {featured && <Badge class="text-xs">Featured</Badge>}
+      </div>
+      <h3 class="mb-3 line-clamp-2 text-xl font-semibold text-portfolio-primary transition-colors group-hover:text-portfolio-accent">
+        {title}
+      </h3>
+      <p class="mb-4 line-clamp-3 text-portfolio-secondary">{excerpt}</p>
+      <TagList tags={tags} limit={3} />
+    </Card>
+  </a>
+</article>

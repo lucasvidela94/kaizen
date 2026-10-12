@@ -1,0 +1,19 @@
+---
+import NavLink from "../molecules/nav-link.astro";
+import ThemeToggle from "../molecules/theme-toggle.astro";
+import { navItems } from "../../data/nav";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isCurrent = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+---
+
+<header class="fixed top-6 left-1/2 z-50 -translate-x-1/2">
+  <nav
+    aria-label="Main"
+    class="flex items-center gap-6 rounded-full border border-portfolio-border bg-portfolio-card/80 px-8 py-3 shadow-lg backdrop-blur-md"
+  >
+    {navItems.map((item) => <NavLink {...item} current={isCurrent(item.href)} />)}
+    <div class="h-6 w-px bg-portfolio-border" aria-hidden="true"></div>
+    <ThemeToggle />
+  </nav>
+</header>

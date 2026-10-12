@@ -1,0 +1,51 @@
+---
+import Icon from "../atoms/icon.astro";
+import type { getCategories, getTags } from "../../lib/posts";
+
+interface Props {
+  categories: ReturnType<typeof getCategories>;
+  tags: ReturnType<typeof getTags>;
+}
+
+const { categories, tags } = Astro.props;
+const field =
+  "w-full rounded-md border border-portfolio-border bg-portfolio-card px-3 py-2 text-sm text-portfolio-primary focus:border-portfolio-accent focus:outline-none";
+---
+
+<form class="mb-8 space-y-6 rounded-lg border border-portfolio-border bg-portfolio-card p-6" onsubmit="return false">
+  <label class="relative block">
+    <span class="sr-only">Search posts</span>
+    <Icon name="search" class="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-portfolio-muted" />
+    <input type="search" data-search placeholder="Search posts..." class:list={[field, "pl-10"]} />
+  </label>
+
+  <label class="block text-sm font-medium text-portfolio-primary">
+    Category
+    <select data-category class:list={[field, "mt-2 block sm:w-60"]}>
+      <option value="all">All Categories</option>
+      {categories.map(({ name, slug, count }) => <option value={slug}>{name} ({count})</option>)}
+    </select>
+  </label>
+
+  <fieldset>
+    <legend class="mb-3 text-sm font-medium text-portfolio-primary">Filter by tags</legend>
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map(({ name, count }) => (
+          <button
+            type="button"
+            data-tag={name}
+            aria-pressed="false"
+            class="rounded-full border border-portfolio-border bg-portfolio-card px-3 py-0.5 text-xs text-portfolio-secondary transition-colors hover:bg-portfolio-accent/10 aria-pressed:border-portfolio-accent aria-pressed:bg-portfolio-accent aria-pressed:text-portfolio-bg"
+          >
+            {name} ({count})
+          </button>
+        ))
+      }
+    </div>
+  </fieldset>
+</form>
+
+<script>
+  import "../../scripts/blog-filters";
+</script>

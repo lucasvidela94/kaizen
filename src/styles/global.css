@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --portfolio-bg: 0 0% 100%;
+  --portfolio-card: 0 0% 96%;
+  --portfolio-text-primary: 222 14% 4%;
+  --portfolio-text-secondary: 222 14% 20%;
+  --portfolio-text-muted: 222 14% 35%;
+  --portfolio-accent: 174 55% 60%;
+  --portfolio-accent-glow: 174 55% 70%;
+  --portfolio-border: 220 13% 85%;
+  --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 94%) 100%);
+  --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.2);
+  --shadow-card: 0 4px 16px hsl(222 14% 4% / 0.15);
+}
+
+.dark {
+  --portfolio-bg: 222 14% 8%;
+  --portfolio-card: 222 14% 10%;
+  --portfolio-text-primary: 210 20% 92%;
+  --portfolio-text-secondary: 215 16% 70%;
+  --portfolio-text-muted: 215 16% 60%;
+  --portfolio-border: 220 13% 22%;
+  --gradient-hero: linear-gradient(135deg, hsl(222 14% 8%) 0%, hsl(220 13% 12%) 100%);
+  --shadow-glow: 0 0 40px hsl(174 55% 60% / 0.15);
+  --shadow-card: 0 4px 12px hsl(222 14% 4% / 0.4);
+}
+
+@theme inline {
+  --color-portfolio-bg: hsl(var(--portfolio-bg));
+  --color-portfolio-card: hsl(var(--portfolio-card));
+  --color-portfolio-primary: hsl(var(--portfolio-text-primary));
+  --color-portfolio-secondary: hsl(var(--portfolio-text-secondary));
+  --color-portfolio-muted: hsl(var(--portfolio-text-muted));
+  --color-portfolio-accent: hsl(var(--portfolio-accent));
+  --color-portfolio-accent-glow: hsl(var(--portfolio-accent-glow));
+  --color-portfolio-border: hsl(var(--portfolio-border));
+  --background-image-gradient-hero: var(--gradient-hero);
+  --shadow-glow: var(--shadow-glow);
+  --shadow-card: var(--shadow-card);
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-portfolio-border);
+  }
+
+  body {
+    background: var(--color-portfolio-bg);
+    color: var(--color-portfolio-primary);
+    font-family: var(--font-mono);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-portfolio-primary);
+  }
+}
+
+.prose-portfolio {
+  --tw-prose-body: var(--color-portfolio-secondary);
+  --tw-prose-headings: var(--color-portfolio-primary);
+  --tw-prose-bold: var(--color-portfolio-primary);
+  --tw-prose-links: var(--color-portfolio-accent);
+  --tw-prose-bullets: var(--color-portfolio-accent);
+  --tw-prose-counters: var(--color-portfolio-muted);
+  --tw-prose-quotes: var(--color-portfolio-secondary);
+  --tw-prose-quote-borders: var(--color-portfolio-accent);
+  --tw-prose-code: var(--color-portfolio-primary);
+  --tw-prose-pre-bg: var(--color-portfolio-card);
+  --tw-prose-pre-code: var(--color-portfolio-primary);
+  --tw-prose-hr: var(--color-portfolio-border);
+  --tw-prose-th-borders: var(--color-portfolio-border);
+  --tw-prose-td-borders: var(--color-portfolio-border);
+}

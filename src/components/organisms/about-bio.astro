@@ -1,0 +1,12 @@
+---
+import Card from "../atoms/card.astro";
+import { aboutHighlight, aboutIntro, aboutOutro } from "../../data/about";
+---
+
+<div class="space-y-6 leading-relaxed text-portfolio-secondary">
+  {aboutIntro.map((paragraph) => <p>{paragraph}</p>)}
+  <Card interactive={false} class="my-8">
+    <p class="text-lg font-medium text-portfolio-accent">{aboutHighlight}</p>
+  </Card>
+  {aboutOutro.map((paragraph) => <p>{paragraph}</p>)}
+</div>

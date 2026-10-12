@@ -1,0 +1,24 @@
+---
+import Card from "../atoms/card.astro";
+import type { Project } from "../../data/projects";
+
+type Props = Project;
+
+const { title, description, tech, href, highlight = false } = Astro.props;
+---
+
+<Card highlight={highlight}>
+  <h3 class="mb-3 text-lg font-semibold text-portfolio-primary">
+    {
+      href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-portfolio-accent">
+          {title}
+        </a>
+      ) : (
+        title
+      )
+    }
+  </h3>
+  <p class="mb-4 leading-relaxed text-portfolio-secondary">{description}</p>
+  <p class="font-mono text-sm text-portfolio-accent">Tech: {tech}</p>
+</Card>

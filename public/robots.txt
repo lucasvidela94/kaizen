@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lucasvidela.com.ar/sitemap.xml
+Sitemap: https://lucasvidela.com.ar/sitemap-index.xml

@@ -1,0 +1,25 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import Card from "../atoms/card.astro";
+import ContactLinks from "../molecules/contact-links.astro";
+
+interface Props {
+  title?: string;
+  text?: string;
+  separator?: string;
+}
+
+const {
+  title = "Available for contract work and consulting.",
+  text = "If you need someone who can take ownership and ship, reach out.",
+  separator,
+} = Astro.props;
+---
+
+<PageSection>
+  <Card interactive={false} class="p-8 text-center">
+    <h2 class="mb-4 text-2xl font-bold text-portfolio-primary">{title}</h2>
+    <p class="mb-6 text-lg text-portfolio-secondary">{text}</p>
+    <ContactLinks {separator} />
+  </Card>
+</PageSection>
