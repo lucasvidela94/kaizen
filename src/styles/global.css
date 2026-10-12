@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light is the inverse of dark; dark is the default. */
+:root {
+  --portfolio-bg: 60 8% 91%;
+  --portfolio-card: 60 6% 87%;
+  --portfolio-text-primary: 0 0% 8%;
+  --portfolio-text-secondary: 0 0% 24%;
+  --portfolio-text-muted: 0 0% 38%;
+  --portfolio-accent: 205 45% 28%;
+  --portfolio-border: 0 0% 74%;
+}
+
+.dark {
+  --portfolio-bg: 0 0% 8.5%;
+  --portfolio-card: 0 0% 11%;
+  --portfolio-text-primary: 60 6% 86%;
+  --portfolio-text-secondary: 60 3% 66%;
+  --portfolio-text-muted: 60 2% 52%;
+  --portfolio-accent: 200 28% 72%;
+  --portfolio-border: 0 0% 20%;
+}
+
+@theme inline {
+  --color-portfolio-bg: hsl(var(--portfolio-bg));
+  --color-portfolio-card: hsl(var(--portfolio-card));
+  --color-portfolio-primary: hsl(var(--portfolio-text-primary));
+  --color-portfolio-secondary: hsl(var(--portfolio-text-secondary));
+  --color-portfolio-muted: hsl(var(--portfolio-text-muted));
+  --color-portfolio-accent: hsl(var(--portfolio-accent));
+  --color-portfolio-border: hsl(var(--portfolio-border));
+  --font-display: var(--astro-font-display), serif;
+  --font-mono: var(--astro-font-mono), monospace;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-portfolio-border);
+  }
+
+  html {
+    background: var(--color-portfolio-bg);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-block: 4rem;
+  }
+
+  body {
+    background: var(--color-portfolio-bg);
+    color: var(--color-portfolio-primary);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.65;
+    padding-block: 2.75rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-portfolio-primary);
+    color: var(--color-portfolio-bg);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-portfolio-primary);
+    outline-offset: 3px;
+  }
+}
+
+/* Halftone portrait: a right-hand panel whose dots dissolve toward the text. */
+.halftone {
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 55%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.halftone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-portfolio-accent);
+  mask: url("/halftone-light.png") 50% 62% / cover no-repeat;
+  opacity: 0.55;
+}
+
+.dark .halftone::before {
+  mask-image: url("/halftone.png");
+  opacity: 0.4;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-settle {
+  animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.animate-rise {
+  animation: rise 2.2s ease-out 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-settle,
+  .animate-rise {
+    animation: none;
+  }
+}
+
+.prose-portfolio {
+  --tw-prose-body: var(--color-portfolio-secondary);
+  --tw-prose-headings: var(--color-portfolio-primary);
+  --tw-prose-bold: var(--color-portfolio-primary);
+  --tw-prose-links: var(--color-portfolio-primary);
+  --tw-prose-bullets: var(--color-portfolio-muted);
+  --tw-prose-counters: var(--color-portfolio-muted);
+  --tw-prose-quotes: var(--color-portfolio-secondary);
+  --tw-prose-quote-borders: var(--color-portfolio-primary);
+  --tw-prose-code: var(--color-portfolio-primary);
+  --tw-prose-pre-bg: var(--color-portfolio-card);
+  --tw-prose-pre-code: var(--color-portfolio-primary);
+  --tw-prose-hr: var(--color-portfolio-border);
+  --tw-prose-th-borders: var(--color-portfolio-border);
+  --tw-prose-td-borders: var(--color-portfolio-border);
+}
+
+/* Full-bleed list rows that invert on hover. */
+@layer components {
+  .row-link {
+    margin-inline: -0.75rem;
+    padding-inline: 0.75rem;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+
+  .row-link:hover,
+  .row-link:focus-visible {
+    background: var(--color-portfolio-primary);
+    color: var(--color-portfolio-bg);
+    outline-offset: -2px;
+  }
+
+  .row-link:hover *,
+  .row-link:focus-visible * {
+    color: inherit;
+    border-color: currentColor;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-portfolio-primary);
+  color: var(--color-portfolio-bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* On short screens (phones in landscape) fixed bars would eat the page. */
+@media (max-height: 480px) {
+  .chrome-bar {
+    position: static;
+  }
+
+  body {
+    padding-block: 0;
+  }
+}

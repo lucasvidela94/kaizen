@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/base-layout.astro";
+import AboutIntro from "../components/organisms/about-intro.astro";
+import CompaniesSection from "../components/organisms/companies-section.astro";
+import ContactSection from "../components/organisms/contact-section.astro";
+import ResumeRow from "../components/organisms/resume-row.astro";
+import { pageMeta } from "../data/site";
+---
+
+<BaseLayout {...pageMeta.about}>
+  <AboutIntro />
+  <CompaniesSection />
+  <ResumeRow />
+  <ContactSection title="Say hello." text="Reach out by email or find the code on GitHub." />
+</BaseLayout>

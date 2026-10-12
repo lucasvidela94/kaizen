@@ -1,0 +1,15 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+import CompanyRow from "../molecules/company-row.astro";
+import magmaLabs from "../../assets/logos/magma-labs.svg";
+import suci from "../../assets/logos/suci.jpg";
+import { companies } from "../../data/about";
+
+const logos = { "magma-labs": magmaLabs, suci };
+---
+
+<PageSection class="mb-16">
+  <SectionLabel label="Work" count={companies.length} />
+  {companies.map(({ logo, ...company }) => <CompanyRow {...company} logo={logos[logo]} />)}
+</PageSection>

@@ -1,0 +1,64 @@
+---
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+import SeoHead from "../components/molecules/seo-head.astro";
+import SiteFooter from "../components/organisms/site-footer.astro";
+import SiteHeader from "../components/organisms/site-header.astro";
+import { SITE_EMAIL, SITE_NAME, SITE_URL, GITHUB_URL } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  person?: boolean;
+}
+
+const { title, description, type, noindex, person = false } = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  jobTitle: "Full-stack Engineer",
+  email: SITE_EMAIL,
+  sameAs: [GITHUB_URL],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content={SITE_NAME} />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <Font cssVariable="--astro-font-display" preload />
+    <Font cssVariable="--astro-font-mono" preload />
+    <SeoHead {title} {description} {type} {noindex} />
+    {person && <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
+    <script is:inline>
+      const applyTheme = () => {
+        try {
+          const saved = localStorage.getItem("theme");
+          document.documentElement.classList.toggle("dark", saved ? saved === "dark" : true);
+        } catch {}
+      };
+      applyTheme();
+      document.addEventListener("astro:after-swap", applyTheme);
+    </script>
+    <ClientRouter />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

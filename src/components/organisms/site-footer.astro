@@ -1,0 +1,32 @@
+---
+import ExternalLink from "../atoms/external-link.astro";
+import { GITHUB_URL, SITE_EMAIL } from "../../data/site";
+import { getPublishedPosts } from "../../lib/posts";
+
+const [latest] = await getPublishedPosts();
+const link = "flex h-11 items-center px-1 text-portfolio-muted hover:text-portfolio-primary";
+---
+
+<footer class="chrome-bar fixed inset-x-0 bottom-0 z-50 border-t border-portfolio-border bg-portfolio-bg">
+  <div class="flex h-11 items-center justify-between gap-6 px-3 text-xs tracking-wider uppercase">
+    <nav aria-label="Social" class="flex items-center gap-2 whitespace-nowrap">
+      <span>Find me</span>
+      <ExternalLink href={GITHUB_URL} class={link}>GitHub</ExternalLink>
+      <ExternalLink href={`mailto:${SITE_EMAIL}`} class={link}>Email</ExternalLink>
+    </nav>
+    <p class="hidden items-center gap-2 text-portfolio-muted md:flex">
+      <span class="size-1.5 rounded-full bg-portfolio-accent" aria-hidden="true"></span>
+      Open to contract work
+    </p>
+    {
+      latest && (
+        <p class="hidden max-w-[34ch] items-center gap-2 whitespace-nowrap sm:flex">
+          <span>Latest</span>
+          <a href={`/blog/${latest.id}`} class="truncate text-portfolio-muted transition-colors hover:text-portfolio-primary">
+            {latest.data.title}
+          </a>
+        </p>
+      )
+    }
+  </div>
+</footer>

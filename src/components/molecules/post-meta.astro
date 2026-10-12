@@ -1,0 +1,15 @@
+---
+import { formatDate } from "../../lib/format-date";
+
+interface Props {
+  date: Date;
+  readTime: number;
+  category: string;
+}
+
+const { date, readTime, category } = Astro.props;
+---
+
+<p class="text-xs tracking-wider text-portfolio-muted uppercase">
+  <time datetime={date.toISOString()}>{formatDate(date)}</time> / {readTime} min / {category}
+</p>

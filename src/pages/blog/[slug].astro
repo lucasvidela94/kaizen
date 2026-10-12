@@ -1,0 +1,34 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
+import PageSection from "../../components/atoms/page-section.astro";
+import PostHeader from "../../components/organisms/post-header.astro";
+import RelatedPosts from "../../components/organisms/related-posts.astro";
+import { getPublishedPosts, getRelatedPosts } from "../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post, related: getRelatedPosts(posts, post) },
+  }));
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Lucas Videla`} description={post.data.excerpt} type="article">
+  <PageSection class="pt-3 pb-16">
+    <a href="/blog" class="mb-6 inline-block text-xs tracking-wider text-portfolio-muted uppercase transition-colors hover:text-portfolio-primary">
+      &larr; Blog
+    </a>
+    <article>
+      <PostHeader {post} />
+      <div class="prose prose-portfolio mt-12 max-w-3xl font-display text-[1.3rem] leading-[1.3] prose-headings:font-normal prose-headings:leading-[0.95] prose-h2:text-4xl prose-h3:text-2xl prose-p:leading-[1.3] prose-li:leading-[1.3] prose-code:font-mono prose-code:text-sm">
+        <Content />
+      </div>
+    </article>
+  </PageSection>
+  <RelatedPosts posts={related} />
+</BaseLayout>

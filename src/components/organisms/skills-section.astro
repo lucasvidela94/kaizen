@@ -1,0 +1,19 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+import { skillGroups } from "../../data/skills";
+---
+
+<PageSection class="mb-24">
+  <SectionLabel label="Skills" count={skillGroups.length} />
+  {
+    skillGroups.map(({ title, items }) => (
+      <div class="grid gap-3 border-b border-portfolio-border py-6 md:grid-cols-[1fr_3fr] md:gap-12">
+        <h3 class="text-xs leading-normal tracking-wider text-portfolio-muted uppercase font-mono">{title}</h3>
+        <ul class="flex flex-wrap gap-x-3 text-[clamp(1.4rem,2.3vw,2.2rem)] leading-tight">
+          {items.map((item) => <li class="after:ml-3 after:text-portfolio-muted after:content-['/'] last:after:hidden">{item}</li>)}
+        </ul>
+      </div>
+    ))
+  }
+</PageSection>

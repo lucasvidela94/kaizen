@@ -1,0 +1,21 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+import BlogCard from "../molecules/blog-card.astro";
+import type { Post } from "../../lib/posts";
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+{
+  posts.length > 0 && (
+    <PageSection class="mb-24">
+      <SectionLabel label="More posts" count={posts.length} />
+      {posts.map((post) => <BlogCard {post} />)}
+    </PageSection>
+  )
+}

@@ -1,0 +1,49 @@
+---
+import type { getCategories, getTags } from "../../lib/posts";
+
+interface Props {
+  categories: ReturnType<typeof getCategories>;
+  tags: ReturnType<typeof getTags>;
+}
+
+const { categories, tags } = Astro.props;
+const control =
+  "border border-portfolio-border bg-transparent px-3 py-2 text-xs tracking-wider uppercase text-portfolio-primary placeholder:text-portfolio-muted focus:border-portfolio-primary focus:outline-none";
+---
+
+<form class="space-y-5 py-6" onsubmit="return false">
+  <div class="flex flex-col gap-3 sm:flex-row">
+    <label class="flex-1">
+      <span class="sr-only">Search posts</span>
+      <input type="search" data-search placeholder="Search posts" class:list={[control, "w-full"]} />
+    </label>
+    <label>
+      <span class="sr-only">Category</span>
+      <select data-category class:list={[control, "w-full sm:w-56"]}>
+        <option value="all">All categories</option>
+        {categories.map(({ name, slug, count }) => <option value={slug}>{name} ({count})</option>)}
+      </select>
+    </label>
+  </div>
+  <fieldset>
+    <legend class="sr-only">Filter by tags</legend>
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map(({ name }) => (
+          <button
+            type="button"
+            data-tag={name}
+            aria-pressed="false"
+            class="border border-portfolio-border px-2.5 py-1 text-xs tracking-wider text-portfolio-secondary uppercase transition-colors hover:border-portfolio-primary aria-pressed:border-portfolio-primary aria-pressed:bg-portfolio-primary aria-pressed:text-portfolio-bg"
+          >
+            {name}
+          </button>
+        ))
+      }
+    </div>
+  </fieldset>
+</form>
+
+<script>
+  import "../../scripts/blog-filters";
+</script>

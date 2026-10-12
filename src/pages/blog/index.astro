@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/base-layout.astro";
+import PageSection from "../../components/atoms/page-section.astro";
+import SectionLabel from "../../components/atoms/section-label.astro";
+import BlogFilters from "../../components/organisms/blog-filters.astro";
+import BlogList from "../../components/organisms/blog-list.astro";
+import ContactSection from "../../components/organisms/contact-section.astro";
+import { getCategories, getPublishedPosts, getTags } from "../../lib/posts";
+import { pageMeta } from "../../data/site";
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout {...pageMeta.blog}>
+  <PageSection class="mb-24 pt-3">
+    <SectionLabel label="Blog" count={posts.length} level="h1" />
+    <p class="max-w-4xl py-8 font-display text-[clamp(2rem,5vw,4.5rem)] leading-[0.95]">
+      {pageMeta.blog.description}
+    </p>
+    <BlogFilters categories={getCategories(posts)} tags={getTags(posts)} />
+    <BlogList {posts} />
+  </PageSection>
+  <ContactSection title="Updates." text="If you'd like to hear about new posts, send me an email." />
+</BaseLayout>

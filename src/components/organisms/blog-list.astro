@@ -1,0 +1,20 @@
+---
+import BlogCard from "../molecules/blog-card.astro";
+import type { Post } from "../../lib/posts";
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<p class="pb-3 text-xs tracking-wider text-portfolio-muted uppercase" data-count aria-live="polite">
+  {posts.length} posts found
+</p>
+<div class="border-t border-portfolio-border">
+  {posts.map((post) => <BlogCard {post} />)}
+</div>
+<p data-empty hidden class="py-12 text-xs tracking-wider text-portfolio-muted uppercase">
+  No posts match these filters.
+</p>
