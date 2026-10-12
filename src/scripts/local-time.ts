@@ -4,13 +4,20 @@ const formatter = new Intl.DateTimeFormat("en-GB", {
   minute: "2-digit",
 });
 
-const element = document.querySelector<HTMLElement>("[data-local-time]");
+let timer: number | undefined;
 
-const tick = (): void => {
+const start = (): void => {
+  window.clearInterval(timer);
+  const element = document.querySelector<HTMLElement>("[data-local-time]");
   if (!element) return;
-  element.textContent = `${formatter.format(new Date())} ART`;
-  element.hidden = false;
+
+  const tick = (): void => {
+    element.textContent = `${formatter.format(new Date())} ART`;
+    element.hidden = false;
+  };
+
+  tick();
+  timer = window.setInterval(tick, 30_000);
 };
 
-tick();
-setInterval(tick, 30_000);
+document.addEventListener("astro:page-load", start);

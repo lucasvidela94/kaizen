@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import SeoHead from "../components/molecules/seo-head.astro";
 import SiteFooter from "../components/organisms/site-footer.astro";
@@ -41,12 +42,16 @@ const personSchema = {
     <SeoHead {title} {description} {type} {noindex} />
     {person && <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
     <script is:inline>
-      try {
-        const saved = localStorage.getItem("theme");
-        const dark = saved ? saved === "dark" : true;
-        document.documentElement.classList.toggle("dark", dark);
-      } catch {}
+      const applyTheme = () => {
+        try {
+          const saved = localStorage.getItem("theme");
+          document.documentElement.classList.toggle("dark", saved ? saved === "dark" : true);
+        } catch {}
+      };
+      applyTheme();
+      document.addEventListener("astro:after-swap", applyTheme);
     </script>
+    <ClientRouter />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
