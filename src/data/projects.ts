@@ -61,11 +61,6 @@ export const selectedBuilds: Project[] = [
     href: "https://github.com/lucasvidela94/funpabia-web",
   },
   {
-    title: "Forja (personal project)",
-    description: "A personal data project in Python, kept private.",
-    tech: "Python, DuckDB",
-  },
-  {
     title: "E-commerce marketplace",
     description:
       "Built an e-commerce platform with payments and operational tooling, with an emphasis on security and maintainability.",
