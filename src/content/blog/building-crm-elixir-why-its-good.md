@@ -4,6 +4,7 @@ seoTitle: "Building a CRM in Elixir: OTP in production"
 description: "Phoenix and OTP patterns in practice"
 excerpt: "I built a CRM in Elixir/Phoenix. This is a technical walk-through of the concurrency model, OTP patterns, and where it helped in production."
 publishedAt: 2025-01-20
+updatedAt: 2026-10-22
 status: published
 category: "Technical"
 tags: ["elixir", "phoenix", "otp", "crm", "performance"]
@@ -33,9 +34,18 @@ A CRM needs to handle:
 **Scalability**: Easy to scale horizontally across multiple servers
 **Functional programming**: More predictable code with fewer side effects
 
+### Requirements mapped to the runtime
+
+| CRM requirement              | Elixir/OTP building block                                                            | Why it fits                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Many users on the same data  | Lightweight BEAM processes                                                           | Each unit of work runs isolated, with its own state     |
+| One failure must not cascade | [Supervisors](https://hexdocs.pm/elixir/Supervisor.html)                             | A crashed process restarts without taking the rest down |
+| Real-time notifications      | [Phoenix PubSub](https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html) and Channels | Changes are broadcast to every connected client         |
+| Background jobs              | Tasks and processes under a supervisor                                               | Email and data work runs off the request path           |
+
 ## OTP Patterns in Action
 
-OTP (Open Telecom Platform) provides powerful patterns that make building reliable systems easier:
+OTP (Open Telecom Platform) provides powerful patterns that make building reliable systems easier. The central one here is the [GenServer](https://hexdocs.pm/elixir/GenServer.html), a process that owns state and answers messages one at a time:
 
 ### GenServer for State Management
 

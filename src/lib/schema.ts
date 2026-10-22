@@ -1,3 +1,4 @@
+import { services } from "../data/services";
 import { GITHUB_URL, SITE_EMAIL, SITE_NAME, SITE_URL } from "../data/site";
 import type { Post } from "./posts";
 
@@ -25,6 +26,10 @@ const person = {
     "Software engineering",
   ],
   sameAs: [GITHUB_URL],
+  makesOffer: services.map(({ title, description }) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: title, description, provider: { "@id": personId } },
+  })),
 };
 
 const website = {

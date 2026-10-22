@@ -4,6 +4,7 @@ seoTitle: "Web bloat and tradeoffs in modern stacks"
 description: "Performance, tooling, and constraints"
 excerpt: "A practical look at how complexity accumulates in web stacks, with Rails and JavaScript examples, and what tends to improve performance and maintainability."
 publishedAt: 2025-01-30
+updatedAt: 2026-10-22
 status: published
 category: "Technical"
 tags: ["web-development", "performance", "rails", "react", "bloat", "javascript"]

@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import BaseLayout from "../../layouts/base-layout.astro";
 import PageSection from "../../components/atoms/page-section.astro";
+import ContactSection from "../../components/organisms/contact-section.astro";
 import PostHeader from "../../components/organisms/post-header.astro";
 import RelatedPosts from "../../components/organisms/related-posts.astro";
 import { getPublishedPosts, getRelatedPosts } from "../../lib/posts";
@@ -40,4 +41,5 @@ const { Content } = await render(post);
     </article>
   </PageSection>
   <RelatedPosts posts={related} />
+  <ContactSection title="Need something like this built?" text="I take on contract work. Tell me what you're building." />
 </BaseLayout>

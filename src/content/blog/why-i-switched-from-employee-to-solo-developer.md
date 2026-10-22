@@ -3,6 +3,7 @@ title: "From employee to independent developer"
 description: "Notes on the transition"
 excerpt: "After a few years in corporate work, I moved into independent work. These are the practical tradeoffs, what changed, and what I would do differently."
 publishedAt: 2025-01-15
+updatedAt: 2026-10-22
 status: published
 category: "Career"
 tags: ["freelancing", "career-change", "solo-developer"]
@@ -40,6 +41,16 @@ Despite the challenges, there are incredible benefits that make the transition w
 - **Multiple revenue streams**: Combine client work, products, and passive income
 - **Tax advantages**: Business expenses and deductions
 - **Direct client relationships**: No middleman taking a cut
+
+## Tradeoffs at a glance
+
+| Area                  | Corporate                    | Independent                       |
+| --------------------- | ---------------------------- | --------------------------------- |
+| Project choice        | What the company prioritizes | Clients and projects you pick     |
+| Technology            | What the company mandates    | The best tool for the job         |
+| Schedule and location | Set by the team              | Flexible, from anywhere           |
+| Income                | Tied to role bands           | Scales with the value you provide |
+| Safety net            | Salary and benefits          | You build it yourself             |
 
 ## Conclusion
 

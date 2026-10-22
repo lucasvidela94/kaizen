@@ -1,0 +1,23 @@
+---
+import PageSection from "../atoms/page-section.astro";
+import SectionLabel from "../atoms/section-label.astro";
+import { services } from "../../data/services";
+---
+
+<PageSection class="mb-24" id="services">
+  <SectionLabel label="Work with me" count={services.length} />
+  <p class="max-w-xl py-4 text-xs leading-relaxed text-portfolio-secondary">
+    What I take on as an independent developer, all of it backed by the projects above.
+  </p>
+  <ul>
+    {
+      services.map(({ title, description, tech }) => (
+        <li class="grid gap-3 border-b border-portfolio-border py-6 md:grid-cols-[1fr_2fr_1fr] md:gap-8">
+          <h3 class="text-[clamp(1.6rem,2.8vw,2.6rem)] leading-tight">{title}</h3>
+          <p class="max-w-xl text-sm leading-relaxed text-portfolio-secondary">{description}</p>
+          <p class="text-xs tracking-wider text-portfolio-muted uppercase md:text-right">{tech}</p>
+        </li>
+      ))
+    }
+  </ul>
+</PageSection>
