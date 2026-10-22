@@ -1,5 +1,6 @@
 ---
 title: "Building a CRM in Elixir"
+seoTitle: "Building a CRM in Elixir: OTP in production"
 description: "Phoenix and OTP patterns in practice"
 excerpt: "I built a CRM in Elixir/Phoenix. This is a technical walk-through of the concurrency model, OTP patterns, and where it helped in production."
 publishedAt: 2025-01-20

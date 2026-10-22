@@ -1,5 +1,6 @@
 ---
 title: "Running projects solo"
+seoTitle: "Running projects solo: tradeoffs and habits"
 description: "Tradeoffs and practical habits"
 excerpt: "When you work solo you cover product, engineering, delivery, and support. These are the tradeoffs and a few habits that keep the work sustainable."
 publishedAt: 2025-01-25

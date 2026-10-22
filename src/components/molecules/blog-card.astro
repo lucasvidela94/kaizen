@@ -5,9 +5,10 @@ import type { Post } from "../../lib/posts";
 
 interface Props {
   post: Post;
+  headingLevel?: "h2" | "h3";
 }
 
-const { post } = Astro.props;
+const { post, headingLevel: Heading = "h3" } = Astro.props;
 const { title, excerpt, publishedAt, readTime, category, tags } = post.data;
 ---
 
@@ -23,7 +24,7 @@ const { title, excerpt, publishedAt, readTime, category, tags } = post.data;
   >
     <PostMeta date={publishedAt} {readTime} {category} />
     <div>
-      <h3 class="text-[clamp(1.8rem,3.4vw,3rem)]">{title}</h3>
+      <Heading class="text-[clamp(1.8rem,3.4vw,3rem)]">{title}</Heading>
       <p class="mt-3 max-w-xl text-sm leading-relaxed text-portfolio-secondary">{excerpt}</p>
     </div>
     <TagList tags={tags} limit={3} />

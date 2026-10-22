@@ -20,7 +20,7 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout
-  title={`${post.data.title} | Lucas Videla`}
+  title={`${post.data.seoTitle ?? post.data.title} | Lucas Videla`}
   description={post.data.excerpt}
   type="article"
   schema={postSchema(post)}

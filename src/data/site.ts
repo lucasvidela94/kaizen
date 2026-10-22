@@ -4,6 +4,8 @@ export const SITE_EMAIL = "lucasan.videla@gmail.com";
 export const GITHUB_URL = "https://github.com/lucasvidela94";
 export const GITHUB_HANDLE = "lucasvidela94";
 export const OG_IMAGE_PATH = "/og-image.png";
+export const OG_IMAGE_ALT =
+  "Lucas Videla, all-purpose developer. Patagonia, Argentina. Open to contract work.";
 
 export const pageMeta = {
   home: {
@@ -12,14 +14,14 @@ export const pageMeta = {
       "Full-stack developer in Patagonia, Argentina. Elixir, TypeScript and Go for web and mobile products, plus open source AI agent tools. Open to contract work.",
   },
   about: {
-    title: "About Lucas Videla | Full-stack Developer",
+    title: "About Lucas Videla | Full-stack Developer in Patagonia",
     description:
       "Full-stack engineer from Argentina. From technical support to production systems used by 15k+ companies, a real estate CRM in Elixir and open source AI tooling.",
   },
   blog: {
-    title: "Engineering Blog | Lucas Videla",
+    title: "Engineering Blog: Elixir and Independent Dev | Lucas Videla",
     description:
-      "Notes on engineering, product decisions, and what I learn while building and maintaining software as an independent developer.",
+      "Notes on Elixir, web performance and product decisions, and what I learn while building and maintaining software as an independent developer.",
   },
   notFound: {
     title: "Page not found | Lucas Videla",

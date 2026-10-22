@@ -1,7 +1,8 @@
 ---
 title: "Web bloat and tradeoffs"
+seoTitle: "Web bloat and tradeoffs in modern stacks"
 description: "Performance, tooling, and constraints"
-excerpt: "A practical look at how complexity accumulates in web stacks, and what tends to improve performance and maintainability."
+excerpt: "A practical look at how complexity accumulates in web stacks, with Rails and JavaScript examples, and what tends to improve performance and maintainability."
 publishedAt: 2025-01-30
 status: published
 category: "Technical"
@@ -22,9 +23,20 @@ It's common to see "simple" sites ship a lot of JavaScript, heavy dependencies, 
 - **Framework bloat**: Every new "modern" framework adds another layer
 - **Incentives**: We often optimize for delivery speed and onboarding, sometimes at the expense of runtime performance
 
+### Where the cost shows up
+
+| Source of bloat                  | Who pays                           | Question to ask                                        |
+| -------------------------------- | ---------------------------------- | ------------------------------------------------------ |
+| Heavy client-side JavaScript     | Users on slow devices and networks | Does this page need to run code in the browser at all? |
+| Layers of dependencies           | The team maintaining the system    | Can the platform or a small helper do this instead?    |
+| Build tooling per project        | Every developer, every day         | Does the tool earn its setup and upgrade cost?         |
+| Popular-by-default stack choices | The business, over the years       | What will this choice cost in two years?               |
+
+Speed on the user's side is measurable: [Core Web Vitals](https://web.dev/articles/vitals) describe loading, interactivity and visual stability, and give a shared way to check whether a stack is paying off.
+
 ## A Rails example
 
-Rails is one example of a mature framework with strong conventions. It is not the answer to everything, but it shows how far you can go with consistent patterns and a stable ecosystem.
+Rails is one example of a mature framework with strong conventions, summarized in [The Rails Doctrine](https://rubyonrails.org/doctrine). It is not the answer to everything, but it shows how far you can go with consistent patterns and a stable ecosystem.
 
 ### What Rails gets right:
 
