@@ -54,6 +54,18 @@ export const selectedBuilds: Project[] = [
     tech: "TypeScript",
   },
   {
+    title: "Funpabia (animal welfare foundation)",
+    description:
+      "Public site and admin panel for an animal welfare foundation in Cipolletti, Argentina, with photos and records managed from the panel.",
+    tech: "TanStack Start, Cloudflare Workers, D1, R2",
+    href: "https://github.com/lucasvidela94/funpabia-web",
+  },
+  {
+    title: "Forja (personal project)",
+    description: "A personal data project in Python, kept private.",
+    tech: "Python, DuckDB",
+  },
+  {
     title: "E-commerce marketplace",
     description:
       "Built an e-commerce platform with payments and operational tooling, with an emphasis on security and maintainability.",
@@ -111,6 +123,27 @@ export const openSource: Project[] = [
     tech: "C, Windows 7+, Linux, OpenAI-compatible APIs",
     href: "https://github.com/lucasvidela94/tinyagent",
     highlight: true,
+  },
+  {
+    title: "skills",
+    description:
+      "Portable agent skills for Claude Code, Codex, OpenCode and Cursor, with a CI gate instead of good intentions: every skill ships a mechanical auditor. Includes seo-on-page and geo-readiness.",
+    tech: "Node.js, agent skills, CI",
+    href: "https://github.com/lucasvidela94/skills",
+  },
+  {
+    title: "Skynul",
+    description:
+      "Open-source autonomous agent backend: give it a prompt and it browses the web, runs shell commands and reads files until the task is done. REST and WebSocket API, 9 LLM providers.",
+    tech: "TypeScript, Hono, Playwright",
+    href: "https://github.com/nevex-labs/skynul-backend",
+  },
+  {
+    title: "chromecast-tui",
+    description:
+      "Terminal UI to discover and cast local media to Chromecast and Roku devices over the LAN. No browser and no cloud; seeking works through HTTP range requests, and a QR code opens a mobile remote.",
+    tech: "Python, Textual, aiohttp",
+    href: "https://github.com/lucasvidela94/chromecast-tui",
   },
   {
     title: "hush",

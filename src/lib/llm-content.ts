@@ -47,7 +47,7 @@ Contact: ${SITE_EMAIL}. Code: ${GITHUB_URL}. The full content of this site is av
 
 - [Home](${SITE_URL}/): professional work, products, open source projects and skills
 - [About](${SITE_URL}/about): background, current work and resume
-- [Blog](${SITE_URL}/blog): notes on independent development, Elixir, solo teams and web performance
+- [Blog](${SITE_URL}/blog): notes on independent development, Elixir, solo teams, web performance and engineering with AI
 - [Resume (PDF)](${SITE_URL}/cv_lucasvidela.pdf)
 - [RSS feed](${SITE_URL}/rss.xml)
 
